@@ -1,5 +1,5 @@
-Nama    : Yoshelin Yamala Vijnana
+Nama: Yoshelin Yamala Vijnana
 
-NPM     : 2206826702
+Kelas: PBP B
 
-Kelas   : PBP E"# yoshe.business" 
+NPM: 2206826702
