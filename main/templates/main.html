@@ -1,21 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 <h1>Selamat Datang di Yoshelin Inventory</h1>
 <p>By: Yoshelin | PBP B | 2206826702 <p>
 
-
 <p>     </p>  
-<h5> Nama produk: </h5>
+<h5> Nama:  </h5>
 <p>{{ name }}</p>
 
-<h5> Stock Produk: </h5>
-<p>{{ amount }}</p>
+<h5> Kelas: </h5>
+<p>{{ class }}</p>
 
-<h5> Deskripsi produk: </h5>
-<p>{{ description }}</p>
-
-<h5> Harga produk: </h5>
-<p>{{ price }}</p>
-
-<h5>Last updated stock is by: {{ date_added }}</h5>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Date Added</th>
+        </tr>
+    
+        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+    
+        {% for Item in Items %}
+            <tr>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.amount}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.date_added}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+    <br />
+    
+    <a href="{% url 'main:create_product' %}">
+        <button>
+            Add New Product
+        </button>
+    </a>
 
 <style>
     /* Mengubah ukuran font h5 menjadi 18px */
@@ -28,3 +53,5 @@
         font-size: 16px;
     }
 </style>
+
+{% endblock content %}
