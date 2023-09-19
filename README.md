@@ -182,14 +182,14 @@ Perbedaan dapat dilihat di tabel berikut ini:
 
 
 # Checklist 3: Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
-1. Format JSON readable sehingga mudah dimengerti
-2. Compatible dengan banyak bahasa pemrograman
-3. Format data yang digunakan JSON merupakan format data umum dalam API, untuk mengirim permintaan dan menerima respons.
-4. Pertukaran data antar server dan klien aman
+**1.** Format JSON readable sehingga mudah dimengerti
+**2.** Compatible dengan banyak bahasa pemrograman
+**3.** Format data yang digunakan JSON merupakan format data umum dalam API, untuk mengirim permintaan dan menerima respons.
+**4.** Pertukaran data antar server dan klien aman
 
 # Checklist 3: Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step 
 
-1. Membuat input form untuk menambahkan objek model pada app sebelumnya.
+**1. Membuat input form untuk menambahkan objek model pada app sebelumnya.**
 - Pertama tama, buat `base.html` pada template yang ada di root
 ```
 {% load static %}
@@ -283,8 +283,9 @@ urlpatterns = [
 ...
 ```
 
-- Dengan form yang sudah ada, maka itu dapat menjadi bekal untuk melengkapi `create_product.html` dan `main` sebagai berikut:
-```{% extends 'base.html' %}
+**- Dengan form yang sudah ada, maka itu dapat menjadi bekal untuk melengkapi `create_product.html` dan `main` sebagai berikut:**
+```
+{% extends 'base.html' %}
 
 {% block content %}
 <style>
@@ -371,7 +372,7 @@ urlpatterns = [
 
 (Saya menambahkan tabel, garis horizontal dan pemberian warna background pada Inventory App saya.)
 
-2.  Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
+**2.  Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.**
 
 - Untuk melihat objek dengan format tersebut, langkah pertama yang harus kita lakukan yakni dengan melakukan import di `views.py`
   ```
@@ -430,7 +431,7 @@ def show_json_by_id(request, id):
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 ```
 
-3. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
+**3. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.**
 
 - Import semua fungsi yang telah dibuat pada `views.py` di direktori main, kemudian tambahkan semua path sesuai dengan fungsi yang telah dibuat sebagai berikut:
 ```
