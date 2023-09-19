@@ -13,7 +13,7 @@ Tautan repository Adaptable: (already disabled...)
 # ₊✧ Tugas 1 PBP ₊✧
 # ============================================
 # Implementasi Checklist Step by Step
-    1.  Checklist 1:  Membuat sebuah proyek Django baru.
+1.  Checklist 1:  Membuat sebuah proyek Django baru.
 Django adalah sebuah framework website yang bersifat open source dalam Python yang tujuannya untuk web developing secara efisien dan aman.
 
 - Untuk membuat proyek Django baru, step pertama yang perlu dilakukan adalah mengaktifkan virtual environment. Pengaktifan virtual environment dapat dilakukan dengan cara memasukkan perintah ini pada terminal:
@@ -56,7 +56,7 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
 
  kemudian klik tautan <http://localhost:8000> pada peramban anda.
 
-    2. Checklist 2: Membuat aplikasi dengan nama main pada proyek tersebut.
+ 2. Checklist 2: Membuat aplikasi dengan nama main pada proyek tersebut.
 - Buatlah main didalam project yoshe.business menggunakan manage.py menggunakan perintah 
         
         `python manage.py startapp main`
@@ -65,7 +65,7 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
 - Kemudian kita tambahkan `main` ke INSTALLED_APPS di settings.py
   
     
-          3. Checklist 3: Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
+  3. Checklist 3: Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
  - Pertama tama, kita perlu setup `urls.py` di app `main` dengan mengisi
 
        ```from django.urls import path
@@ -86,7 +86,7 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
           ]
           ``` '''
      
-         4. Checklist 4: Membuat model pada aplikasi main dengan nama `Item`` dan memiliki atribut wajib
+   4. Checklist 4: Membuat model pada aplikasi main dengan nama `Item`` dan memiliki atribut wajib
 - Melakukan setup pada `item` sesuai dengan ketentuan soal, pada atribut `nama, amount, date_added, price, description`
 - Selanjutnya lakukan run 
             
@@ -98,14 +98,14 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
             
      untuk me-migrasikan ke database.
 
-      5. Checklist 5:  Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py
+  5. Checklist 5:  Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py
 - Setup views.py dengan melakukan inisiasi data yang akan dipanggil pada main, kemudian buat juga render html nya sebagai berikut:
 
             `render(request, "main.html", context)` 
 
 - Pada main, kita lakukan `include` pada root project, yakni file `urls.py`
 
-      6. Checklist 6: Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
+  6. Checklist 6: Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
 - Lakukan `add, commit, dan push` ke GitHub dan lakukan deployment pada platform Adaptable sesuai dengan perintah yang tersedia pada Tutorial 0 PBP.
 
 
