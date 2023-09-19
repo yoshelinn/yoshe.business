@@ -116,6 +116,7 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
 
 - Secara keseluruhan, urls.py berfungsi untuk mengelola argumen yang diterima dari pengguna dan mengarahkannya ke berkas HTML yang berisi template web. Berkas HTML tersebut akan menghasilkan outputnya melalui views.py. Ketika ada permintaan untuk mengambil data, models.py berperan sebagai perantara yang menghubungkan views.py dengan database. Dengan demikian, views.py dapat menggabungkan dan memproses data tersebut untuk menciptakan halaman web yang utuh.
 
+
 # Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 
  - Virtual Environment (VE) adalah alat yang membantu pengembang perangkat lunak mengisolasi proyek mereka dari yang lain, sehingga setiap proyek dapat memiliki dependensi yang berbeda tanpa saling mengganggu. Hal ini memungkinkan penggunaan versi yang berbeda dari modul yang sama dalam setiap proyek, dan VE memiliki beberapa manfaat penting:
@@ -124,6 +125,7 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
         3. Menghindari Konflik Dependensi: VE mencegah konflik antara dependensi yang berbeda, memastikan bahwa proyek-proyek berjalan dengan lancar.
 
 - Meskipun memungkinkan dengan tidak menggunakan VE, disarankan untuk menggunakan lingkungan virtual saat membuat aplikasi web berbasis Django. Hal ini bertujuan agar versi perpustakaan (library) yang digunakan dalam satu proyek tidak terpengaruh jika kita melakukan pembaruan pada perpustakaan yang sama dalam proyek lainnya.
+
 
 # Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 Model-View-Controller (MVC), Model-View-Template (MVT), dan Model-View-ViewModel (MVVM) adalah arsitektur desain perangkat lunak yang digunakan dalam pengembangan aplikasi. 
@@ -146,8 +148,8 @@ Model: Seperti dalam MVC dan MVT, Model mengelola data dan logika bisnis aplikas
 - Perbedaan utama antara ketiganya adalah:
 Template vs. View vs. Controller/ViewModel: MVC memiliki View, MVT memiliki Template, dan MVVM memiliki View dan ViewModel. MVVM memiliki ViewModel tambahan yang mengelola logika tampilan.
 
-Penanganan Logika Tampilan: MVC dan MVT memiliki logika tampilan dalam Controller dan Template masing-masing, sementara MVVM memisahkan logika tampilan ke dalam ViewModel yang terpisah.
+- Penanganan Logika Tampilan: MVC dan MVT memiliki logika tampilan dalam Controller dan Template masing-masing, sementara MVVM memisahkan logika tampilan ke dalam ViewModel yang terpisah.
 
-Struktur Pengembangan: Struktur MVC lebih berfokus pada kontrol alur aplikasi, sedangkan MVT lebih berfokus pada tampilan yang dihasilkan dari Template. MVVM menambahkan abstraksi tambahan untuk mengelola tampilan dengan baik.
+- Struktur Pengembangan: Struktur MVC lebih berfokus pada kontrol alur aplikasi, sedangkan MVT lebih berfokus pada tampilan yang dihasilkan dari Template. MVVM menambahkan abstraksi tambahan untuk mengelola tampilan dengan baik.
 
 
