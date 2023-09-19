@@ -18,17 +18,18 @@ Django adalah sebuah framework website yang bersifat open source dalam Python ya
 
 - Untuk membuat proyek Django baru, step pertama yang perlu dilakukan adalah mengaktifkan virtual environment. Pengaktifan virtual environment dapat dilakukan dengan cara memasukkan perintah ini pada terminal:
   
-            `python -m venv env``
+            `python -m venv env`
 
 - Kemudian, untuk memunculkan (env) pada terminal, kita perlu memasukkan: 
 
-            `env\Scripts\activate.bat``
+            `env\Scripts\activate.bat`
 
 pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment sudah aktif.
 
 - Langkah selanjutnya yang perlu dilakukan ialah menyiapkan dependencies. Dependencies dapat memastikan bahwa program atau proyek tertentu dapat berjalan tanpa kesalahan. Di dalam direktori, saya membuat `requirements.txt`` yang berisi:
 
-        ```python
+  ```
+        python
         django
         gunicorn
         whitenoise
@@ -36,7 +37,7 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
         requests
         urllib3 
         
-        ```
+   ```
 - Dependencies kemudian di install dengan menjalankan perintah ini pada terminal:
 
             `pip install -r requirements.txt`
@@ -68,23 +69,27 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
 # 3. Checklist 3: Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
  - Pertama tama, kita perlu setup `urls.py` di app `main` dengan mengisi
 
-       ```from django.urls import path
+   ```
+        from django.urls import path
         from main.views import show_main
         app_name = 'main'
 
         urlpatterns = [
             path('', show_main, name='show_main'),
-        ]```
+        ]
+   ```
 
 
 - Tambahkan rute URL seperti berikut untuk mengarahkan ke tampilan main
      
-          ```urlpatterns = [
+  ```
+             urlpatterns = [
             ...
             path('main/', include('main.urls')),
             ...
           ]
-          ``` '''
+          
+  ```
      
 # 4. Checklist 4: Membuat model pada aplikasi main dengan nama `Item`` dan memiliki atribut wajib
 - Melakukan setup pada `item` sesuai dengan ketentuan soal, pada atribut `nama, amount, date_added, price, description`
@@ -227,14 +232,15 @@ Perbedaan dapat dilihat di tabel berikut ini:
 
 - Pada `forms.py` kita mengimpor `ModelForm` dan Item yang berisi fields, yang bertujuan untuk menambah item ke database dengan `ModelForm`
 
-      ```from django.forms import ModelForm
+  ```
+         from django.forms import ModelForm
          from main.models import Item
 
           class ProductForm(ModelForm):
            class Meta:
            model = Item
            fields = ["name", "amount", "description", "price" ]
-      ```
+  ```
 
 - Pada `templates > create_product.html`, 
 berisi fungsi `create_product(request)` yang dapat mengakses file `create_product.html` untuk menerima request, membuat dan menyimpan data yang diinput pada form.
@@ -380,8 +386,8 @@ urlpatterns = [
 - Untuk melihat objek dengan format tersebut, langkah pertama yang harus kita lakukan yakni dengan melakukan import di `views.py`
   ```
   from django.http import HttpResponse
-    from django.core import serializers
-    ```
+  from django.core import serializers
+  ```
 
 - Kemudian, kita bisa langsung menginisiasi fungsi untuk menampilkan format HTML, XML, JSON. XML by ID, dan JSON by ID. Sebagai berikut: (pada views.py)
 ```
