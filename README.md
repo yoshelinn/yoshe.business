@@ -58,11 +58,11 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
         `python manage.py startapp main`
 
 - Ketika berhasil dijalankan, main akan terbentuk dalam direktori. Selanjutnya kita perlu add folder `templates` yang berisi `main.html`
-- Kemudian kita tambahkan `'main'` ke INSTALLED_APPS di settings.py
+- Kemudian kita tambahkan `main` ke INSTALLED_APPS di settings.py
   
     
           3. Checklist 3: Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
- - Pertama tama, kita perlu setup `urls.py`` di app `main` dengan mengisi
+ - Pertama tama, kita perlu setup `urls.py` di app `main` dengan mengisi
 
        ```from django.urls import path
         from main.views import show_main
@@ -92,9 +92,9 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
 
             `./manage.py migrate` 
             
-untuk me-migrasikan ke database.
+     untuk me-migrasikan ke database.
 
-    5. Checklist 5:  Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py
+      5. Checklist 5:  Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py
 - Setup views.py dengan melakukan inisiasi data yang akan dipanggil pada main, kemudian buat juga render html nya sebagai berikut:
 
             `render(request, "main.html", context)` 
@@ -103,6 +103,8 @@ untuk me-migrasikan ke database.
 
       6. Checklist 6: Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
 - Lakukan `add, commit, dan push` ke GitHub dan lakukan deployment pada platform Adaptable sesuai dengan perintah yang tersedia pada Tutorial 0 PBP.
+
+
 
 # Bagan yang berisi request client ke web aplikasi berbasis Django
 
@@ -117,37 +119,35 @@ untuk me-migrasikan ke database.
 # Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 
     - Virtual Environment (VE) adalah alat yang membantu pengembang perangkat lunak mengisolasi proyek mereka dari yang lain, sehingga setiap proyek dapat memiliki dependensi yang berbeda tanpa saling mengganggu. Hal ini memungkinkan penggunaan versi yang berbeda dari modul yang sama dalam setiap proyek, dan VE memiliki beberapa manfaat penting:
-        1. Isolasi Dependensi: VE memungkinkan proyek-proyek berbeda untuk memiliki dependensi yang berbeda, seperti versi modul yang berbeda, tanpa konflik.
+1. Isolasi Dependensi: VE memungkinkan proyek-proyek berbeda untuk memiliki dependensi yang berbeda, seperti versi modul yang berbeda, tanpa konflik.
+ 2. Manajemen Dependensi yang Jelas: VE membantu mengelola dan menjaga daftar dependensi yang jelas untuk setiap proyek, menghindari kebingungan dan penghapusan yang tidak sengaja.
+ 3. Menghindari Konflik Dependensi: VE mencegah konflik antara dependensi yang berbeda, memastikan bahwa proyek-proyek berjalan dengan lancar.
 
-        2. Manajemen Dependensi yang Jelas: VE membantu mengelola dan menjaga daftar dependensi yang jelas untuk setiap proyek, menghindari kebingungan dan penghapusan yang tidak sengaja.
-
-        3. Menghindari Konflik Dependensi: VE mencegah konflik antara dependensi yang berbeda, memastikan bahwa proyek-proyek berjalan dengan lancar.
-
-    - Meskipun memungkinkan dengan tidak menggunakan VE, disarankan untuk menggunakan lingkungan virtual saat membuat aplikasi web berbasis Django. Hal ini bertujuan agar versi perpustakaan (library) yang digunakan dalam satu proyek tidak terpengaruh jika kita melakukan pembaruan pada perpustakaan yang sama dalam proyek lainnya.
+        - Meskipun memungkinkan dengan tidak menggunakan VE, disarankan untuk menggunakan lingkungan virtual saat membuat aplikasi web berbasis Django. Hal ini bertujuan agar versi perpustakaan (library) yang digunakan dalam satu proyek tidak terpengaruh jika kita melakukan pembaruan pada perpustakaan yang sama dalam proyek lainnya.
 
 # Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
-    Model-View-Controller (MVC), Model-View-Template (MVT), dan Model-View-ViewModel (MVVM) adalah arsitektur desain perangkat lunak yang digunakan dalam pengembangan aplikasi. 
+Model-View-Controller (MVC), Model-View-Template (MVT), dan Model-View-ViewModel (MVVM) adalah arsitektur desain perangkat lunak yang digunakan dalam pengembangan aplikasi. 
 
     - MVC (Model-View-Controller):
-        Model: Mengelola data dan logika bisnis aplikasi. Ini berinteraksi dengan database dan mengambil, memodifikasi, atau menyimpan data.
+Model: Mengelola data dan logika bisnis aplikasi. Ini berinteraksi dengan database dan mengambil, memodifikasi, atau menyimpan data.
         View: Bertanggung jawab untuk menampilkan data kepada pengguna dalam bentuk yang sesuai. Ini tidak berisi logika bisnis tetapi hanya menampilkan informasi.
         Controller: Bertindak sebagai perantara antara Model dan View. Ini mengontrol alur aplikasi, mengelola permintaan pengguna, dan mengatur interaksi antara Model dan View. Ini juga menangani routing dan pengolahan permintaan.
 
     - MVT (Model-View-Template):
-        Model: Mirip dengan MVC, Model mengelola data dan logika bisnis. Ini berhubungan dengan database dan operasi data lainnya.
+Model: Mirip dengan MVC, Model mengelola data dan logika bisnis. Ini berhubungan dengan database dan operasi data lainnya.
         View: View dalam MVT adalah logika yang mengatur cara tampilan akan ditampilkan kepada pengguna, mirip dengan template dalam MVC.
         Template: Bertanggung jawab untuk rendering tampilan yang disesuaikan dengan data yang diberikan oleh View. Template ini menentukan cara tampilan akhir akan muncul.
 
-   -  MVVM (Model-View-ViewModel):
-        Model: Seperti dalam MVC dan MVT, Model mengelola data dan logika bisnis aplikasi.
+    -  MVVM (Model-View-ViewModel):
+Model: Seperti dalam MVC dan MVT, Model mengelola data dan logika bisnis aplikasi.
         View: Bertanggung jawab untuk menampilkan data dan interaksi dengan pengguna seperti dalam MVC.
         ViewModel: Ini adalah bagian yang paling khas dari MVVM. ViewModel menghubungkan Model dan View. Ini menangani logika tampilan dan transformasi data sehingga dapat ditampilkan dengan benar di View. ViewModel berperan sebagai perantara antara Model dan View.
 
     - Perbedaan utama antara ketiganya adalah:
-        Template vs. View vs. Controller/ViewModel: MVC memiliki View, MVT memiliki Template, dan MVVM memiliki View dan ViewModel. MVVM memiliki ViewModel tambahan yang mengelola logika tampilan.
+Template vs. View vs. Controller/ViewModel: MVC memiliki View, MVT memiliki Template, dan MVVM memiliki View dan ViewModel. MVVM memiliki ViewModel tambahan yang mengelola logika tampilan.
 
-        Penanganan Logika Tampilan: MVC dan MVT memiliki logika tampilan dalam Controller dan Template masing-masing, sementara MVVM memisahkan logika tampilan ke dalam ViewModel yang terpisah.
+Penanganan Logika Tampilan: MVC dan MVT memiliki logika tampilan dalam Controller dan Template masing-masing, sementara MVVM memisahkan logika tampilan ke dalam ViewModel yang terpisah.
 
-        Struktur Pengembangan: Struktur MVC lebih berfokus pada kontrol alur aplikasi, sedangkan MVT lebih berfokus pada tampilan yang dihasilkan dari Template. MVVM menambahkan abstraksi tambahan untuk mengelola tampilan dengan baik.
+Struktur Pengembangan: Struktur MVC lebih berfokus pada kontrol alur aplikasi, sedangkan MVT lebih berfokus pada tampilan yang dihasilkan dari Template. MVVM menambahkan abstraksi tambahan untuk mengelola tampilan dengan baik.
 
 
