@@ -108,42 +108,42 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
 
 # Bagan yang berisi request client ke web aplikasi berbasis Django
 
-    - Keterkaitan antara urls.py dan views.py adalah bahwa urls.py berfungsi untuk menguraikan argumen dari URL dan meneruskannya ke views.py yang sesuai. Setelah itu, views.py akan mengambil permintaan tersebut dan menghasilkan respons web yang sesuai.
+ - Keterkaitan antara urls.py dan views.py adalah bahwa urls.py berfungsi untuk menguraikan argumen dari URL dan meneruskannya ke views.py yang sesuai. Setelah itu, views.py akan mengambil permintaan tersebut dan menghasilkan respons web yang sesuai.
 
-    - Hubungan antara views.py dan berkas HTML adalah bahwa views.py akan mengambil template dari berkas HTML. Selanjutnya, template tersebut akan digabungkan dan diproses oleh views.py sehingga menghasilkan halaman web yang lengkap.
+ - Hubungan antara views.py dan berkas HTML adalah bahwa views.py akan mengambil template dari berkas HTML. Selanjutnya, template tersebut akan digabungkan dan diproses oleh views.py sehingga menghasilkan halaman web yang lengkap.
 
-    - Kaitan antara views.py dan models.py terletak pada fakta bahwa models.py akan mengambil data dari database dan mengirimkannya ke views.py.
+ - Kaitan antara views.py dan models.py terletak pada fakta bahwa models.py akan mengambil data dari database dan mengirimkannya ke views.py.
 
-    - Secara keseluruhan, urls.py berfungsi untuk mengelola argumen yang diterima dari pengguna dan mengarahkannya ke berkas HTML yang berisi template web. Berkas HTML tersebut akan menghasilkan outputnya melalui views.py. Ketika ada permintaan untuk mengambil data, models.py berperan sebagai perantara yang menghubungkan views.py dengan database. Dengan demikian, views.py dapat menggabungkan dan memproses data tersebut untuk menciptakan halaman web yang utuh.
+- Secara keseluruhan, urls.py berfungsi untuk mengelola argumen yang diterima dari pengguna dan mengarahkannya ke berkas HTML yang berisi template web. Berkas HTML tersebut akan menghasilkan outputnya melalui views.py. Ketika ada permintaan untuk mengambil data, models.py berperan sebagai perantara yang menghubungkan views.py dengan database. Dengan demikian, views.py dapat menggabungkan dan memproses data tersebut untuk menciptakan halaman web yang utuh.
 
 # Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 
-    - Virtual Environment (VE) adalah alat yang membantu pengembang perangkat lunak mengisolasi proyek mereka dari yang lain, sehingga setiap proyek dapat memiliki dependensi yang berbeda tanpa saling mengganggu. Hal ini memungkinkan penggunaan versi yang berbeda dari modul yang sama dalam setiap proyek, dan VE memiliki beberapa manfaat penting:
-1. Isolasi Dependensi: VE memungkinkan proyek-proyek berbeda untuk memiliki dependensi yang berbeda, seperti versi modul yang berbeda, tanpa konflik.
- 2. Manajemen Dependensi yang Jelas: VE membantu mengelola dan menjaga daftar dependensi yang jelas untuk setiap proyek, menghindari kebingungan dan penghapusan yang tidak sengaja.
- 3. Menghindari Konflik Dependensi: VE mencegah konflik antara dependensi yang berbeda, memastikan bahwa proyek-proyek berjalan dengan lancar.
+ - Virtual Environment (VE) adalah alat yang membantu pengembang perangkat lunak mengisolasi proyek mereka dari yang lain, sehingga setiap proyek dapat memiliki dependensi yang berbeda tanpa saling mengganggu. Hal ini memungkinkan penggunaan versi yang berbeda dari modul yang sama dalam setiap proyek, dan VE memiliki beberapa manfaat penting:
+        1. Isolasi Dependensi: VE memungkinkan proyek-proyek berbeda untuk memiliki dependensi yang berbeda, seperti versi modul yang berbeda, tanpa konflik.
+        2. Manajemen Dependensi yang Jelas: VE membantu mengelola dan menjaga daftar dependensi yang jelas untuk setiap proyek, menghindari kebingungan dan penghapusan yang tidak sengaja.
+        3. Menghindari Konflik Dependensi: VE mencegah konflik antara dependensi yang berbeda, memastikan bahwa proyek-proyek berjalan dengan lancar.
 
-        - Meskipun memungkinkan dengan tidak menggunakan VE, disarankan untuk menggunakan lingkungan virtual saat membuat aplikasi web berbasis Django. Hal ini bertujuan agar versi perpustakaan (library) yang digunakan dalam satu proyek tidak terpengaruh jika kita melakukan pembaruan pada perpustakaan yang sama dalam proyek lainnya.
+- Meskipun memungkinkan dengan tidak menggunakan VE, disarankan untuk menggunakan lingkungan virtual saat membuat aplikasi web berbasis Django. Hal ini bertujuan agar versi perpustakaan (library) yang digunakan dalam satu proyek tidak terpengaruh jika kita melakukan pembaruan pada perpustakaan yang sama dalam proyek lainnya.
 
 # Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
 Model-View-Controller (MVC), Model-View-Template (MVT), dan Model-View-ViewModel (MVVM) adalah arsitektur desain perangkat lunak yang digunakan dalam pengembangan aplikasi. 
 
-    - MVC (Model-View-Controller):
+- MVC (Model-View-Controller):
 Model: Mengelola data dan logika bisnis aplikasi. Ini berinteraksi dengan database dan mengambil, memodifikasi, atau menyimpan data.
         View: Bertanggung jawab untuk menampilkan data kepada pengguna dalam bentuk yang sesuai. Ini tidak berisi logika bisnis tetapi hanya menampilkan informasi.
         Controller: Bertindak sebagai perantara antara Model dan View. Ini mengontrol alur aplikasi, mengelola permintaan pengguna, dan mengatur interaksi antara Model dan View. Ini juga menangani routing dan pengolahan permintaan.
 
-    - MVT (Model-View-Template):
+- MVT (Model-View-Template):
 Model: Mirip dengan MVC, Model mengelola data dan logika bisnis. Ini berhubungan dengan database dan operasi data lainnya.
         View: View dalam MVT adalah logika yang mengatur cara tampilan akan ditampilkan kepada pengguna, mirip dengan template dalam MVC.
         Template: Bertanggung jawab untuk rendering tampilan yang disesuaikan dengan data yang diberikan oleh View. Template ini menentukan cara tampilan akhir akan muncul.
 
-    -  MVVM (Model-View-ViewModel):
+-  MVVM (Model-View-ViewModel):
 Model: Seperti dalam MVC dan MVT, Model mengelola data dan logika bisnis aplikasi.
         View: Bertanggung jawab untuk menampilkan data dan interaksi dengan pengguna seperti dalam MVC.
         ViewModel: Ini adalah bagian yang paling khas dari MVVM. ViewModel menghubungkan Model dan View. Ini menangani logika tampilan dan transformasi data sehingga dapat ditampilkan dengan benar di View. ViewModel berperan sebagai perantara antara Model dan View.
 
-    - Perbedaan utama antara ketiganya adalah:
+- Perbedaan utama antara ketiganya adalah:
 Template vs. View vs. Controller/ViewModel: MVC memiliki View, MVT memiliki Template, dan MVVM memiliki View dan ViewModel. MVVM memiliki ViewModel tambahan yang mengelola logika tampilan.
 
 Penanganan Logika Tampilan: MVC dan MVT memiliki logika tampilan dalam Controller dan Template masing-masing, sementara MVVM memisahkan logika tampilan ke dalam ViewModel yang terpisah.
