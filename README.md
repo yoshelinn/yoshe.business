@@ -111,7 +111,7 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
 
 
 # Bagan yang berisi request client ke web aplikasi berbasis Django
-
+![Bagan_Django_Yoshelin](https://github.com/yoshelinn/yoshe.business/assets/120077685/081f0139-bc81-4284-8db7-27e577b68356)
 
  - Keterkaitan antara urls.py dan views.py adalah bahwa urls.py berfungsi untuk menguraikan argumen dari URL dan meneruskannya ke views.py yang sesuai. Setelah itu, views.py akan mengambil permintaan tersebut dan menghasilkan respons web yang sesuai.
 
