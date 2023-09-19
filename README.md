@@ -19,7 +19,7 @@ Django adalah sebuah framework website yang bersifat open source dalam Python ya
 
 pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment sudah aktif.
 
- - Langkah selanjutnya yang perlu dilakukan ialah menyiapkan dependencies. Dependencies dapat memastikan bahwa program atau proyek tertentu dapat berjalan tanpa kesalahan. Di dalam direktori, saya membuat `requirements.txt`` yang berisi:
+- Langkah selanjutnya yang perlu dilakukan ialah menyiapkan dependencies. Dependencies dapat memastikan bahwa program atau proyek tertentu dapat berjalan tanpa kesalahan. Di dalam direktori, saya membuat `requirements.txt`` yang berisi:
 
         ```python
         django
@@ -50,12 +50,13 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
  kemudian klik tautan <http://localhost:8000> pada peramban anda.
 
     2. Checklist 2: Membuat aplikasi dengan nama main pada proyek tersebut.
- - Buatlah main didalam project yoshe.business menggunakan manage.py menggunakan perintah 
+- Buatlah main didalam project yoshe.business menggunakan manage.py menggunakan perintah 
         
         `python manage.py startapp main`
 
-    - Ketika berhasil dijalankan, main akan terbentuk dalam direktori. Selanjutnya kita perlu add folder `templates` yang berisi `main.html`
-    - Kemudian kita tambahkan `'main'` ke INSTALLED_APPS di settings.py
+- Ketika berhasil dijalankan, main akan terbentuk dalam direktori. Selanjutnya kita perlu add folder `templates` yang berisi `main.html`
+- Kemudian kita tambahkan `'main'` ke INSTALLED_APPS di settings.py
+  
     
           3. Checklist 3: Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
  - Pertama tama, kita perlu setup `urls.py`` di app `main` dengan mengisi
@@ -68,7 +69,8 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
             path('', show_main, name='show_main'),
         ]```
 
-   - Tambahkan rute URL seperti berikut untuk mengarahkan ke tampilan main
+
+- Tambahkan rute URL seperti berikut untuk mengarahkan ke tampilan main
      
           ```urlpatterns = [
             ...
@@ -78,8 +80,8 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
           ``` '''
      
          4. Checklist 4: Membuat model pada aplikasi main dengan nama `Item`` dan memiliki atribut wajib
-   - Melakukan setup pada `item` sesuai dengan ketentuan soal, pada atribut `nama, amount, date_added, price, description`
-   - Selanjutnya lakukan run 
+- Melakukan setup pada `item` sesuai dengan ketentuan soal, pada atribut `nama, amount, date_added, price, description`
+- Selanjutnya lakukan run 
             
             `./manage.py makemigrations` 
             
@@ -87,17 +89,17 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
 
             `./manage.py migrate` 
             
-            untuk me-migrasikan ke database.
+untuk me-migrasikan ke database.
 
     5. Checklist 5:  Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py
-            - Setup views.py dengan melakukan inisiasi data yang akan dipanggil pada main, kemudian buat juga render html nya sebagai berikut:
+- Setup views.py dengan melakukan inisiasi data yang akan dipanggil pada main, kemudian buat juga render html nya sebagai berikut:
 
             `render(request, "main.html", context)` 
 
-            - Pada main, kita lakukan `include` pada root project, yakni file `urls.py`
+- Pada main, kita lakukan `include` pada root project, yakni file `urls.py`
 
-    6. Checklist 6: Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
-            - Lakukan `add, commit, dan push` ke GitHub dan lakukan deployment pada platform Adaptable sesuai dengan perintah yang tersedia pada Tutorial 0 PBP.
+      6. Checklist 6: Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
+- Lakukan `add, commit, dan push` ke GitHub dan lakukan deployment pada platform Adaptable sesuai dengan perintah yang tersedia pada Tutorial 0 PBP.
 
 # Bagan yang berisi request client ke web aplikasi berbasis Django
 
