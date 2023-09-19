@@ -159,3 +159,5 @@ Model: Seperti dalam MVC dan MVT, Model mengelola data dan logika bisnis aplikas
 # ============================================
 # ₊✧ Tugas 2 PBP ₊✧
 # ============================================
+
+#
