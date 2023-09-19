@@ -9,9 +9,9 @@ NPM     :   2206826702
 
 Tautan repository Adaptable: (already disabled...)
 
-# ============================================
+# =====================================
 # ₊✧ Tugas 1 PBP ₊✧
-# ============================================
+# =====================================
 # Implementasi Checklist Step by Step
 # 1.  Checklist 1:  Membuat sebuah proyek Django baru.
 Django adalah sebuah framework website yang bersifat open source dalam Python yang tujuannya untuk web developing secara efisien dan aman.
