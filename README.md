@@ -7,17 +7,17 @@ NPM     :   2206826702
 # Tautan repository Adaptable: <>
 # Implementasi Checklist Step by Step
     1.  Checklist 1:  Membuat sebuah proyek Django baru.
-        Django adalah sebuah framework website yang bersifat open source dalam Python yang tujuannya untuk web developing secara efisien dan aman.
+Django adalah sebuah framework website yang bersifat open source dalam Python yang tujuannya untuk web developing secara efisien dan aman.
 
-        - Untuk membuat proyek Django baru, step pertama yang perlu dilakukan adalah mengaktifkan virtual environment. Pengaktifan virtual environment dapat dilakukan dengan cara memasukkan perintah ini pada terminal:
-
+- Untuk membuat proyek Django baru, step pertama yang perlu dilakukan adalah mengaktifkan virtual environment. Pengaktifan virtual environment dapat dilakukan dengan cara memasukkan perintah ini pada terminal:
+  
             `python -m venv env``
 
-        - Kemudian, untuk memunculkan (env) pada terminal, kita perlu memasukkan: 
+- Kemudian, untuk memunculkan (env) pada terminal, kita perlu memasukkan: 
 
             `env\Scripts\activate.bat``
 
-        pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment sudah aktif.
+pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment sudah aktif.
 
         - Langkah selanjutnya yang perlu dilakukan ialah menyiapkan dependencies. Dependencies dapat memastikan bahwa program atau proyek tertentu dapat berjalan tanpa kesalahan. Di dalam direktori, saya membuat `requirements.txt`` yang berisi:
 
