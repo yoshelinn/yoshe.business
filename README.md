@@ -19,7 +19,7 @@ Django adalah sebuah framework website yang bersifat open source dalam Python ya
 
 pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment sudah aktif.
 
-        - Langkah selanjutnya yang perlu dilakukan ialah menyiapkan dependencies. Dependencies dapat memastikan bahwa program atau proyek tertentu dapat berjalan tanpa kesalahan. Di dalam direktori, saya membuat `requirements.txt`` yang berisi:
+ - Langkah selanjutnya yang perlu dilakukan ialah menyiapkan dependencies. Dependencies dapat memastikan bahwa program atau proyek tertentu dapat berjalan tanpa kesalahan. Di dalam direktori, saya membuat `requirements.txt`` yang berisi:
 
         ```python
         django
@@ -30,58 +30,60 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
         urllib3 
         
         ```
-        - Dependencies kemudian di install dengan menjalankan perintah ini pada terminal:
+- Dependencies kemudian di install dengan menjalankan perintah ini pada terminal:
 
             `pip install -r requirements.txt`
         
-        - Kemudian saya membuat proyek Django baru dengan nama `mysite` dengan menjalankan perintah berikut:
+ - Kemudian saya membuat proyek Django baru dengan nama `mysite` dengan menjalankan perintah berikut:
 
             `pip install django`
 
             `django-admin startproject mysite .`
 
-        - Pada settings.py, kita perlu menambahkan `"*"` pada `ALLOWED_HOST` untuk mengubah pengaturan akses.
-        - Menambahkan berkas `.gitignore`
-        - Tambahkan `'main'`` ke INSTALLED_APPS di settings.py
-        - Cek apakah Django telah berhasil dibuat, dengan cara memasukkan perintah berikut pada direktori:
+- Pada settings.py, kita perlu menambahkan `"*"` pada `ALLOWED_HOST` untuk mengubah pengaturan akses.
+- Menambahkan berkas `.gitignore`
+- Tambahkan `'main'`` ke INSTALLED_APPS di settings.py
+- Cek apakah Django telah berhasil dibuat, dengan cara memasukkan perintah berikut pada direktori:
 
             `python manage.py runserver`
 
-            kemudian klik tautan <http://localhost:8000> pada peramban anda.
+ kemudian klik tautan <http://localhost:8000> pada peramban anda.
 
     2. Checklist 2: Membuat aplikasi dengan nama main pada proyek tersebut.
-        - Buatlah main didalam project yoshe.business menggunakan manage.py menggunakan perintah 
+ - Buatlah main didalam project yoshe.business menggunakan manage.py menggunakan perintah 
         
         `python manage.py startapp main`
 
-        - Ketika berhasil dijalankan, main akan terbentuk dalam direktori. Selanjutnya kita perlu add folder `templates` yang berisi `main.html`
-        - Kemudian kita tambahkan `'main'` ke INSTALLED_APPS di settings.py
+    - Ketika berhasil dijalankan, main akan terbentuk dalam direktori. Selanjutnya kita perlu add folder `templates` yang berisi `main.html`
+    - Kemudian kita tambahkan `'main'` ke INSTALLED_APPS di settings.py
+    
+          3. Checklist 3: Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
+ - Pertama tama, kita perlu setup `urls.py`` di app `main` dengan mengisi
 
-    3. Checklist 3: Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
-            - Pertama tama, kita perlu setup `urls.py`` di app `main` dengan mengisi 
-            ```from django.urls import path
+       ```from django.urls import path
         from main.views import show_main
-
         app_name = 'main'
 
         urlpatterns = [
             path('', show_main, name='show_main'),
         ]```
 
-        - Tambahkan rute URL seperti berikut untuk mengarahkan ke tampilan main
-        ```urlpatterns = [
+   - Tambahkan rute URL seperti berikut untuk mengarahkan ke tampilan main
+     
+          ```urlpatterns = [
             ...
             path('main/', include('main.urls')),
             ...
-        ]
-        ```
-    4. Checklist 4: Membuat model pada aplikasi main dengan nama `Item`` dan memiliki atribut wajib
-            - Melakukan setup pada `item` sesuai dengan ketentuan soal, pada atribut `nama, amount, date_added, price, description`
-            - Selanjutnya lakukan run 
+          ]
+          ``` '''
+     
+         4. Checklist 4: Membuat model pada aplikasi main dengan nama `Item`` dan memiliki atribut wajib
+   - Melakukan setup pada `item` sesuai dengan ketentuan soal, pada atribut `nama, amount, date_added, price, description`
+   - Selanjutnya lakukan run 
             
             `./manage.py makemigrations` 
             
-            dan 
+     dan 
 
             `./manage.py migrate` 
             
