@@ -8,12 +8,14 @@ from main.models import Item
 from django.forms import ModelForm
 
 def show_main(request):
-    Items = Item.objects.all()
+    items = Item.objects.all()
+    item_count = items.count()
 
     context = {
         'name': 'Yoshelin Yamala Vijnana',
         'class': 'PBP B',
-        'products': Item
+        'items': items,
+        'item_count': item_count,
     }
 
     return render(request, "main.html", context)
@@ -34,4 +36,12 @@ def show_xml(request):
 
 def show_json(request):
     data = Item.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def show_xml_by_id(request, id):
+    data = Item.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+def show_json_by_id(request, id):
+    data = Item.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")

@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+    body {
+        background-color: #abd3cc;
+    }
+</style>
 
 <h1>Selamat Datang di Yoshelin Inventory</h1>
 <p>By: Yoshelin | PBP B | 2206826702 <p>
@@ -12,43 +17,60 @@
 <h5> Kelas: </h5>
 <p>{{ class }}</p>
 
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Amount</th>
-            <th>Description</th>
-            <th>Date Added</th>
-        </tr>
-    
-        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-    
-        {% for Item in Items %}
-            <tr>
-                <td>{{product.name}}</td>
-                <td>{{product.price}}</td>
-                <td>{{product.amount}}</td>
-                <td>{{product.description}}</td>
-                <td>{{product.date_added}}</td>
-            </tr>
-        {% endfor %}
-    </table>
-    
-    <br />
-    
-    <a href="{% url 'main:create_product' %}">
-        <button>
-            Add New Product
-        </button>
-    </a>
+<h5> Produk: </h5>
+<p>{{ item }}</p>
+
+<p>Kamu telah menyimpan {{ items|length }} item pada aplikasi ini.</p>
 
 <style>
-    /* Mengubah ukuran font h5 menjadi 18px */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 3px solid #00a99d;
+        text-align: left;
+        padding: 10px;
+    }
+
+    th {
+        background-color: #00a99d;
+    }
+</style>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>Description</th>
+        <th>Date Added</th>
+    </tr>
+    {% for item in items %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.amount }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.date_added }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<br />
+
+<a href="{% url 'main:create_product' %}">
+    <button>
+        Add New Item
+    </button>
+</a>
+
+<style>
     h5 {
         font-size: 18px;
     }
 
-    /* Mengubah ukuran font pada paragraf (p) menjadi 14px */
     p {
         font-size: 16px;
     }
