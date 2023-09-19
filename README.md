@@ -183,8 +183,11 @@ Perbedaan dapat dilihat di tabel berikut ini:
 
 # Checklist 3: Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
 **1.** Format JSON readable sehingga mudah dimengerti
+
 **2.** Compatible dengan banyak bahasa pemrograman
+
 **3.** Format data yang digunakan JSON merupakan format data umum dalam API, untuk mengirim permintaan dan menerima respons.
+
 **4.** Pertukaran data antar server dan klien aman
 
 # Checklist 3: Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step 
