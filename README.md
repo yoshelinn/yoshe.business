@@ -18,7 +18,7 @@ Django adalah sebuah framework website yang bersifat open source dalam Python ya
 
 - Untuk membuat proyek Django baru, step pertama yang perlu dilakukan adalah mengaktifkan virtual environment. Pengaktifan virtual environment dapat dilakukan dengan cara memasukkan perintah ini pada terminal:
   
-            `python -m venv env`
+            ```python -m venv env`
 
 - Kemudian, untuk memunculkan (env) pada terminal, kita perlu memasukkan: 
 
@@ -458,3 +458,34 @@ urlpatterns = [
     ]
 
 ```
+
+# Mengakses kelima URL di poin 2 menggunakan Postman
+1. HTML
+![html1](https://github.com/yoshelinn/yoshe.business/assets/120077685/c0d359bd-e473-4dd8-ae8c-22f5aa9e6bd9)
+![html2](https://github.com/yoshelinn/yoshe.business/assets/120077685/9cc5ec14-c9b5-43d3-a1d8-6882d005677f)
+![html3](https://github.com/yoshelinn/yoshe.business/assets/120077685/3daad420-29c9-4f1a-a41e-60a7f8c7ec10)
+![html4](https://github.com/yoshelinn/yoshe.business/assets/120077685/229d02c4-d861-4687-918e-fa690f82f5a8)
+![html5](https://github.com/yoshelinn/yoshe.business/assets/120077685/f31fc3a3-a9db-4a2d-9e0c-cc9964023a1a)
+
+
+2. XML
+![xml1yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/f0c350c8-5250-4568-8314-ec6ffe1cfdaf)
+![xml2yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/0fb20cee-63b8-419f-96bb-cb077909ae9b)
+
+3. JSON
+![json1yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/5d29980c-93f6-4268-9311-2db71be0e9ba)
+![json2yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/38bd6a56-7136-41f3-ac74-7e7c1a9fa5ce)
+![json3yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/82570a15-9d66-4f12-a250-93f1fcd4519b)
+
+4. XML by ID
+![xmlbyid1yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/3649dedf-277f-4a35-9cfc-16ecad794bc1)
+![xmlbyid2yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/25efd542-5fb8-4de3-92be-6949c5fd6a61)
+![xmlbyid3yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/4977a7fe-6c9e-4415-a41f-ade1914a73eb)
+![xmlbyid4yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/6eec57ea-f6a2-4138-8def-9adbae50c9db)
+
+5. JSON by ID
+![jsonbyid1yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/69b12ef8-860a-4004-8d48-900a935c293d)
+![jsonbyid2yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/3daf6f10-a36d-480c-b412-4ac108c2f2b2)
+![jsonbyid3yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/eea3e6ee-d4ca-4ba8-a831-e7569e100dd4)
+![jsonbyid4yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/16a9f309-881b-4130-8c44-918bf6743478)
+
