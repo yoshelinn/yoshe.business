@@ -151,11 +151,9 @@ Model: Seperti dalam MVC dan MVT, Model mengelola data dan logika bisnis aplikas
         ViewModel: Ini adalah bagian yang paling khas dari MVVM. ViewModel menghubungkan Model dan View. Ini menangani logika tampilan dan transformasi data sehingga dapat ditampilkan dengan benar di View. ViewModel berperan sebagai perantara antara Model dan View.
 
 - Perbedaan utama antara ketiganya adalah:
-Template vs. View vs. Controller/ViewModel: MVC memiliki View, MVT memiliki Template, dan MVVM memiliki View dan ViewModel. MVVM memiliki ViewModel tambahan yang mengelola logika tampilan.
-
-- Penanganan Logika Tampilan: MVC dan MVT memiliki logika tampilan dalam Controller dan Template masing-masing, sementara MVVM memisahkan logika tampilan ke dalam ViewModel yang terpisah.
-
-- Struktur Pengembangan: Struktur MVC lebih berfokus pada kontrol alur aplikasi, sedangkan MVT lebih berfokus pada tampilan yang dihasilkan dari Template. MVVM menambahkan abstraksi tambahan untuk mengelola tampilan dengan baik.
+1. Template vs. View vs. Controller/ViewModel: MVC memiliki View, MVT memiliki Template, dan MVVM memiliki View dan ViewModel. MVVM memiliki ViewModel tambahan yang mengelola logika tampilan.
+2. Penanganan Logika Tampilan: MVC dan MVT memiliki logika tampilan dalam Controller dan Template masing-masing, sementara MVVM memisahkan logika tampilan ke dalam ViewModel yang terpisah.
+3. Struktur Pengembangan: Struktur MVC lebih berfokus pada kontrol alur aplikasi, sedangkan MVT lebih berfokus pada tampilan yang dihasilkan dari Template. MVVM menambahkan abstraksi tambahan untuk mengelola tampilan dengan baik.
 
 
 # ============================================
