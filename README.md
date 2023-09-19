@@ -111,7 +111,7 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
 
 
 # Bagan yang berisi request client ke web aplikasi berbasis Django
-![image](https://github.com/yoshelinn/yoshe.business/assets/120077685/4075faa6-92e9-4e74-8c83-2ec660656bc5)
+
 
  - Keterkaitan antara urls.py dan views.py adalah bahwa urls.py berfungsi untuk menguraikan argumen dari URL dan meneruskannya ke views.py yang sesuai. Setelah itu, views.py akan mengambil permintaan tersebut dan menghasilkan respons web yang sesuai.
 
@@ -177,7 +177,9 @@ Form GET tingkat keamanannya lebih rendah dari form POST karena data nya bersifa
 Form POST memiliki batasan ukuran data yang dapat di-deliver lebih besar dibandingkan degan form GET.
 
 # Checklist 2: Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
-![Alt text](image.png)
+Perbedaan dapat dilihat di tabel berikut ini:
+![Perbedaan](https://github.com/yoshelinn/yoshe.business/assets/120077685/31b5367b-98aa-4d0a-997b-461574eee259)
+
 
 # Checklist 3: Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
 1. Format JSON readable sehingga mudah dimengerti
@@ -189,7 +191,8 @@ Form POST memiliki batasan ukuran data yang dapat di-deliver lebih besar dibandi
 
 1. Membuat input form untuk menambahkan objek model pada app sebelumnya.
 - Pertama tama, buat `base.html` pada template yang ada di root
-```{% load static %}
+```
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -221,25 +224,26 @@ Form POST memiliki batasan ukuran data yang dapat di-deliver lebih besar dibandi
 
 - Pada `forms.py` kita mengimpor `ModelForm` dan Item yang berisi fields, yang bertujuan untuk menambah item ke database dengan `ModelForm`
 
-```from django.forms import ModelForm
-from main.models import Item
+      ```from django.forms import ModelForm
+         from main.models import Item
 
-class ProductForm(ModelForm):
-    class Meta:
-        model = Item
-        fields = ["name", "amount", "description", "price" ]
+          class ProductForm(ModelForm):
+           class Meta:
+           model = Item
+           fields = ["name", "amount", "description", "price" ]
       ```
 
 - Pada `templates > create_product.html`, 
 berisi fungsi `create_product(request)` yang dapat mengakses file `create_product.html` untuk menerima request, membuat dan menyimpan data yang diinput pada form.
- ```from django.http import HttpResponse
-from django.core import serializers
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from main.forms import ProductForm
-from django.urls import reverse
-from main.models import Item
-from django.forms import ModelForm
+ ```
+from django.http import HttpResponse
+    from django.core import serializers
+    from django.shortcuts import render
+    from django.http import HttpResponseRedirect
+    from main.forms import ProductForm
+    from django.urls import reverse
+    from main.models import Item
+    from django.forms import ModelForm
 
 def show_main(request):
     items = Item.objects.all()
@@ -362,18 +366,22 @@ urlpatterns = [
     }
 </style>
 
-{% endblock content %} ```
+{% endblock content %}
+```
 
 (Saya menambahkan tabel, garis horizontal dan pemberian warna background pada Inventory App saya.)
 
 2.  Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
 
 - Untuk melihat objek dengan format tersebut, langkah pertama yang harus kita lakukan yakni dengan melakukan import di `views.py`
-```from django.http import HttpResponse
-from django.core import serializers```
+  ```
+  from django.http import HttpResponse
+    from django.core import serializers
+    ```
 
 - Kemudian, kita bisa langsung menginisiasi fungsi untuk menampilkan format HTML, XML, JSON. XML by ID, dan JSON by ID. Sebagai berikut: (pada views.py)
-```from django.http import HttpResponse
+```
+from django.http import HttpResponse
 from django.core import serializers
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
@@ -419,12 +427,14 @@ def show_xml_by_id(request, id):
 
 def show_json_by_id(request, id):
     data = Item.objects.filter(pk=id)
-    return HttpResponse(serializers.serialize("json", data), content_type="application/json")```
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+```
 
 3. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
 
 - Import semua fungsi yang telah dibuat pada `views.py` di direktori main, kemudian tambahkan semua path sesuai dengan fungsi yang telah dibuat sebagai berikut:
-```from django.urls import path
+```
+from django.urls import path
 from main.views import *
 app_name = 'main'
 
