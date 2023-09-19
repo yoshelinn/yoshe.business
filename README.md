@@ -157,3 +157,6 @@ Template vs. View vs. Controller/ViewModel: MVC memiliki View, MVT memiliki Temp
 - Struktur Pengembangan: Struktur MVC lebih berfokus pada kontrol alur aplikasi, sedangkan MVT lebih berfokus pada tampilan yang dihasilkan dari Template. MVVM menambahkan abstraksi tambahan untuk mengelola tampilan dengan baik.
 
 
+# ============================================
+# ₊✧ Tugas 2 PBP ₊✧
+# ============================================
