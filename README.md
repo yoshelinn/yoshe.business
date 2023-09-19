@@ -9,9 +9,9 @@ NPM     :   2206826702
 
 Tautan repository Adaptable: (already disabled...)
 
-# =====================================
+# ============================================
 # ₊✧ Tugas 1 PBP ₊✧
-# =====================================
+# ============================================
 # Implementasi Checklist Step by Step
 # 1.  Checklist 1:  Membuat sebuah proyek Django baru.
 Django adalah sebuah framework website yang bersifat open source dalam Python yang tujuannya untuk web developing secara efisien dan aman.
@@ -160,4 +160,281 @@ Model: Seperti dalam MVC dan MVT, Model mengelola data dan logika bisnis aplikas
 # ₊✧ Tugas 2 PBP ₊✧
 # ============================================
 
-#
+# 1. Checklist 1: Apa perbedaan antara form POST dan form GET dalam Django?
+Dalam Django, kita dapat menggunakan metode POST dan GET untuk mengirim data dari formulir HTML ke server web Django.
+
+- Aspek Delivery Data
+Dalam form POST, input data yang dimasukkan ke form akan dikirim ke dalam server web sebagai body request dari HTTP. Data bersifat invisible. 
+
+Dalam form GET, data yang dikirim ke form merupakan bagian dari URL sehingga data terlihat dalam alamat website. Data bersifat visible.
+
+- Aspek Security
+Form POST lebih aman karena data yang di-deliver tidak terlihat dalam URL, sehingga tidak mudah terpapar ke publik,
+
+Form GET tingkat keamanannya lebih rendah dari form POST karena data nya bersifat visible, maka data dapat dilihat oleh pengguna lain.
+
+- Aspek Kapasitas
+Form POST memiliki batasan ukuran data yang dapat di-deliver lebih besar dibandingkan degan form GET.
+
+# Checklist 2: Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+![Alt text](image.png)
+
+# Checklist 3: Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+1. Format JSON readable sehingga mudah dimengerti
+2. Compatible dengan banyak bahasa pemrograman
+3. Format data yang digunakan JSON merupakan format data umum dalam API, untuk mengirim permintaan dan menerima respons.
+4. Pertukaran data antar server dan klien aman
+
+# Checklist 3: Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step 
+
+1. Membuat input form untuk menambahkan objek model pada app sebelumnya.
+- Pertama tama, buat `base.html` pada template yang ada di root
+```{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        {% block meta %}
+        {% endblock meta %}
+    </head>
+
+    <body>
+        {% block content %}
+        {% endblock content %}
+    </body>
+</html>```
+
+- Kemudian, kita add `settings.py` dengan kode agar base.html dapat dideteksi sebagai templates
+```TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [BASE_DIR / 'templates'], # Tambahkan kode ini
+        'APP_DIRS': True,
+        ...
+    }
+]
+```
+
+- Pada `forms.py` kita mengimpor `ModelForm` dan Item yang berisi fields, yang bertujuan untuk menambah item ke database dengan `ModelForm`
+
+```from django.forms import ModelForm
+from main.models import Item
+
+class ProductForm(ModelForm):
+    class Meta:
+        model = Item
+        fields = ["name", "amount", "description", "price" ]
+      ```
+
+- Pada `templates > create_product.html`, 
+berisi fungsi `create_product(request)` yang dapat mengakses file `create_product.html` untuk menerima request, membuat dan menyimpan data yang diinput pada form.
+ ```from django.http import HttpResponse
+from django.core import serializers
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from main.forms import ProductForm
+from django.urls import reverse
+from main.models import Item
+from django.forms import ModelForm
+
+def show_main(request):
+    items = Item.objects.all()
+    item_count = items.count()
+
+    context = {
+        'name': 'Yoshelin Yamala Vijnana',
+        'class': 'PBP B',
+        'items': items,
+        'item_count': item_count,
+    }
+
+    return render(request, "main.html", context)
+
+def create_product(request):
+    form = ProductForm(request.POST or None)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "create_product.html", context)
+    ```
+
+
+- Memodifikasi `urls.py` dengan add `create_product`
+    ```from main.views import *
+    from django.urls import path
+from main.views import *
+app_name = 'main'
+
+urlpatterns = [
+    path('', show_main, name='show_main'),
+    path('create-product', create_product, name='create_product'),
+]
+...
+```
+
+- Dengan form yang sudah ada, maka itu dapat menjadi bekal untuk melengkapi `create_product.html` dan `main` sebagai berikut:
+```{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        background-color: #abd3cc;
+    }
+</style>
+
+<h1 style="color: #00a99d; font-size: 34px;">Selamat Datang di Yoshelin Inventory</h1>
+<p>By: Yoshelin | PBP B | 2206826702 <p>
+
+<hr style="border: 1px solid #00a99d ">
+
+<p>     </p>  
+<h5> Nama:  </h5>
+<p>{{ name }}</p>
+
+
+<h5> Kelas: </h5>
+<p>{{ class }}</p>
+
+
+<h5> Produk: </h5>
+<p>{{ item }}</p>
+
+<p>Kamu telah menyimpan {{ items|length }} item pada aplikasi ini.</p>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 3px solid #00a99d;
+        text-align: left;
+        padding: 10px;
+    }
+
+    th {
+        background-color: #00a99d;
+    }
+</style>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Amount</th>
+        <th>Description</th>
+        <th>Date Added</th>
+    </tr>
+    {% for item in items %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.amount }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.date_added }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<br />
+
+<a href="{% url 'main:create_product' %}">
+    <button>
+        Add New Item
+    </button>
+</a>
+
+<style>
+    h5 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+</style>
+
+{% endblock content %} ```
+
+(Saya menambahkan tabel, garis horizontal dan pemberian warna background pada Inventory App saya.)
+
+2.  Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
+
+- Untuk melihat objek dengan format tersebut, langkah pertama yang harus kita lakukan yakni dengan melakukan import di `views.py`
+```from django.http import HttpResponse
+from django.core import serializers```
+
+- Kemudian, kita bisa langsung menginisiasi fungsi untuk menampilkan format HTML, XML, JSON. XML by ID, dan JSON by ID. Sebagai berikut: (pada views.py)
+```from django.http import HttpResponse
+from django.core import serializers
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from main.forms import ProductForm
+from django.urls import reverse
+from main.models import Item
+from django.forms import ModelForm
+
+def show_main(request):
+    items = Item.objects.all()
+    item_count = items.count()
+
+    context = {
+        'name': 'Yoshelin Yamala Vijnana',
+        'class': 'PBP B',
+        'items': items,
+        'item_count': item_count,
+    }
+
+    return render(request, "main.html", context)
+
+def create_product(request):
+    form = ProductForm(request.POST or None)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "create_product.html", context)
+
+def show_xml(request):
+    data = Item.objects.all()
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+def show_json(request):
+    data = Item.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def show_xml_by_id(request, id):
+    data = Item.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+def show_json_by_id(request, id):
+    data = Item.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")```
+
+3. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
+
+- Import semua fungsi yang telah dibuat pada `views.py` di direktori main, kemudian tambahkan semua path sesuai dengan fungsi yang telah dibuat sebagai berikut:
+```from django.urls import path
+from main.views import *
+app_name = 'main'
+
+urlpatterns = [
+    path('', show_main, name='show_main'),
+    path('create-product', create_product, name='create_product'),
+    path('xml/', show_xml, name='show_xml'),
+    path('json/', show_json, name='show_json'),
+    path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),
+    path('json/<int:id>/', show_json_by_id, name='show_json_by_id'),
+    ]
+
+```
