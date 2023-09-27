@@ -13,16 +13,17 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
+
 
 @login_required(login_url='/login')
 def show_main(request):
-    items = item.objects.filter(user=request.user)
+    Items = Item.objects.filter(user=request.user)
 
     context = {
         'name': request.user.username,
         'class': 'PBP B',
-        'items': items,
-        'item_count': item_count,
+        'items': Items,
         'last_login': request.COOKIES['last_login'],
     }
 
@@ -33,7 +34,7 @@ def create_product(request):
 
     if form.is_valid() and request.method == "POST":
         item = form.save(commit=False)
-        item .user = request.user
+        item.user = request.user
         item.save()
         return HttpResponseRedirect(reverse('main:show_main'))
 
@@ -73,13 +74,13 @@ def login_user(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        response = HttpResponseRedirect(reverse("main:show_main")) 
-        response.set_cookie('last_login', str(datetime.datetime.now()))
-        return response
-    else:
-            messages.info(request, 'Sorry, incorrect username or password. Please try again.')
+        if user is not None:
+            login(request, user)
+            response = HttpResponseRedirect(reverse("main:show_main")) 
+            response.set_cookie('last_login', str(datetime.datetime.now()))
+            return response
+        else:
+                messages.info(request, 'Sorry, incorrect username or password. Please try again.')
     context = {}
     return render(request, 'login.html', context)
 
@@ -88,3 +89,23 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+def add_item(request, id):
+    product = get_object_or_404(Item, pk=id, user=request.user)
+    product.amount += 1
+    product.save()
+    return redirect('main:show_main')
+
+def substract_item(request, id):
+    product = get_object_or_404(Item, pk=id, user=request.user)
+    if product.amount > 0:
+        product.amount -= 1
+        product.save()
+    else: 
+        messages.info(request, f'Jumlah {product.name} tidak boleh kurang dari 0')
+    return redirect('main:show_main')
+
+def delete_item(request, id):
+    product = get_object_or_404(Item, pk=id, user=request.user)
+    product.delete()
+    return redirect('main:show_main')

@@ -81,10 +81,31 @@
 </style>
 
 <a href="{% url 'main:logout' %}">
-    <button>
+    <button type="button">
         Logout
     </button>
 </a>
+
+<a href="{% url 'main:add_item' id=1 %}">
+    <button type="button">
+        Add Item
+    </button>
+</a>
+
+
+<a href="{% url 'main:substract_item' id=1 %}">
+    <button type="button">
+        Subtract Item
+    </button>
+</a>
+
+
+<a href="{% url 'main:delete_item' id=1  %}">
+    <button type="button">
+        Delete Item
+    </button>
+</a>
+
 
 <h5>Sesi terakhir login: {{ last_login }}</h5>
 

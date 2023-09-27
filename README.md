@@ -9,6 +9,7 @@ NPM     :   2206826702
 
 Tautan repository Adaptable: (already disabled...)
 
+<<<<<<< HEAD
 # ============================================
 # ₊✧ Tugas 1 PBP ₊✧
 # ============================================
@@ -21,14 +22,37 @@ Django adalah sebuah framework website yang bersifat open source dalam Python ya
             `python -m venv env``
 
 - Kemudian, untuk memunculkan (env) pada terminal, kita perlu memasukkan: 
+=======
+# =====================================
+# ₊✧ Tugas 1 PBP ₊✧
+# =====================================
+# Implementasi Checklist Step by Step
+# 1.  Checklist 1:  Membuat sebuah proyek Django baru.
+Django adalah sebuah framework website yang bersifat open source dalam Python yang tujuannya untuk web developing secara efisien dan aman.
 
-            `env\Scripts\activate.bat``
+- Untuk membuat proyek Django baru, step pertama yang perlu dilakukan adalah mengaktifkan virtual environment. Pengaktifan virtual environment dapat dilakukan dengan cara memasukkan perintah ini pada terminal:
+  
+            ```python -m venv env`
 
+- Kemudian, untuk memunculkan (env) pada terminal, kita perlu memasukkan: 
+
+            `env\Scripts\activate.bat`
+>>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
+
+pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment sudah aktif.
+
+<<<<<<< HEAD
 pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment sudah aktif.
 
 - Langkah selanjutnya yang perlu dilakukan ialah menyiapkan dependencies. Dependencies dapat memastikan bahwa program atau proyek tertentu dapat berjalan tanpa kesalahan. Di dalam direktori, saya membuat `requirements.txt`` yang berisi:
 
         ```python
+=======
+- Langkah selanjutnya yang perlu dilakukan ialah menyiapkan dependencies. Dependencies dapat memastikan bahwa program atau proyek tertentu dapat berjalan tanpa kesalahan. Di dalam direktori, saya membuat `requirements.txt`` yang berisi:
+
+  ```
+        python
+>>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
         django
         gunicorn
         whitenoise
@@ -36,7 +60,11 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
         requests
         urllib3 
         
+<<<<<<< HEAD
         ```
+=======
+   ```
+>>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
 - Dependencies kemudian di install dengan menjalankan perintah ini pada terminal:
 
             `pip install -r requirements.txt`
@@ -68,23 +96,39 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
 # 3. Checklist 3: Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
  - Pertama tama, kita perlu setup `urls.py` di app `main` dengan mengisi
 
+<<<<<<< HEAD
        ```from django.urls import path
+=======
+   ```
+        from django.urls import path
+>>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
         from main.views import show_main
         app_name = 'main'
 
         urlpatterns = [
             path('', show_main, name='show_main'),
-        ]```
+        ]
+   ```
 
 
 - Tambahkan rute URL seperti berikut untuk mengarahkan ke tampilan main
      
+<<<<<<< HEAD
           ```urlpatterns = [
+=======
+  ```
+             urlpatterns = [
+>>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
             ...
             path('main/', include('main.urls')),
             ...
           ]
+<<<<<<< HEAD
           ``` '''
+=======
+          
+  ```
+>>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
      
 # 4. Checklist 4: Membuat model pada aplikasi main dengan nama `Item`` dan memiliki atribut wajib
 - Melakukan setup pada `item` sesuai dengan ketentuan soal, pada atribut `nama, amount, date_added, price, description`
@@ -111,7 +155,11 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
 
 
 # Bagan yang berisi request client ke web aplikasi berbasis Django
+<<<<<<< HEAD
 ![image](https://github.com/yoshelinn/yoshe.business/assets/120077685/4075faa6-92e9-4e74-8c83-2ec660656bc5)
+=======
+![Bagan_Django_Yoshelin](https://github.com/yoshelinn/yoshe.business/assets/120077685/081f0139-bc81-4284-8db7-27e577b68356)
+>>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
 
  - Keterkaitan antara urls.py dan views.py adalah bahwa urls.py berfungsi untuk menguraikan argumen dari URL dan meneruskannya ke views.py yang sesuai. Setelah itu, views.py akan mengambil permintaan tersebut dan menghasilkan respons web yang sesuai.
 
@@ -176,6 +224,7 @@ Form GET tingkat keamanannya lebih rendah dari form POST karena data nya bersifa
 - Aspek Kapasitas
 Form POST memiliki batasan ukuran data yang dapat di-deliver lebih besar dibandingkan degan form GET.
 
+<<<<<<< HEAD
 # Checklist 2: Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
 ![Alt text](image.png)
 
@@ -190,6 +239,28 @@ Form POST memiliki batasan ukuran data yang dapat di-deliver lebih besar dibandi
 1. Membuat input form untuk menambahkan objek model pada app sebelumnya.
 - Pertama tama, buat `base.html` pada template yang ada di root
 ```{% load static %}
+=======
+# 2. Checklist 2: Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+Perbedaan dapat dilihat di tabel berikut ini:
+![Perbedaan](https://github.com/yoshelinn/yoshe.business/assets/120077685/31b5367b-98aa-4d0a-997b-461574eee259)
+
+
+# 3. Checklist 3: Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+**1.** Format JSON readable sehingga mudah dimengerti
+
+**2.** Compatible dengan banyak bahasa pemrograman
+
+**3.** Format data yang digunakan JSON merupakan format data umum dalam API, untuk mengirim permintaan dan menerima respons.
+
+**4.** Pertukaran data antar server dan klien aman
+
+# 4. Checklist 4: Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step 
+
+**1. Membuat input form untuk menambahkan objek model pada app sebelumnya.**
+- Pertama tama, buat `base.html` pada template yang ada di root
+```
+{% load static %}
+>>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -216,6 +287,7 @@ Form POST memiliki batasan ukuran data yang dapat di-deliver lebih besar dibandi
         'APP_DIRS': True,
         ...
     }
+<<<<<<< HEAD
 ] ```
 
 - Pada `forms.py` kita mengimpor `ModelForm` dan Item yang berisi fields, yang bertujuan untuk menambah item ke database dengan `ModelForm`
@@ -239,6 +311,34 @@ from main.forms import ProductForm
 from django.urls import reverse
 from main.models import Item
 from django.forms import ModelForm
+=======
+]
+```
+
+- Pada `forms.py` kita mengimpor `ModelForm` dan Item yang berisi fields, yang bertujuan untuk menambah item ke database dengan `ModelForm`
+
+  ```
+         from django.forms import ModelForm
+         from main.models import Item
+
+          class ProductForm(ModelForm):
+           class Meta:
+           model = Item
+           fields = ["name", "amount", "description", "price" ]
+  ```
+
+- Pada `templates > create_product.html`, 
+berisi fungsi `create_product(request)` yang dapat mengakses file `create_product.html` untuk menerima request, membuat dan menyimpan data yang diinput pada form.
+ ```
+from django.http import HttpResponse
+    from django.core import serializers
+    from django.shortcuts import render
+    from django.http import HttpResponseRedirect
+    from main.forms import ProductForm
+    from django.urls import reverse
+    from main.models import Item
+    from django.forms import ModelForm
+>>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
 
 def show_main(request):
     items = Item.objects.all()
@@ -278,8 +378,14 @@ urlpatterns = [
 ...
 ```
 
+<<<<<<< HEAD
 - Dengan form yang sudah ada, maka itu dapat menjadi bekal untuk melengkapi `create_product.html` dan `main` sebagai berikut:
 ```{% extends 'base.html' %}
+=======
+**- Dengan form yang sudah ada, maka itu dapat menjadi bekal untuk melengkapi `create_product.html` dan `main` sebagai berikut:**
+```
+{% extends 'base.html' %}
+>>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
 
 {% block content %}
 <style>
@@ -361,6 +467,7 @@ urlpatterns = [
     }
 </style>
 
+<<<<<<< HEAD
 {% endblock content %} ```
 
 (Saya menambahkan tabel, garis horizontal dan pemberian warna background pada Inventory App saya.)
@@ -373,6 +480,24 @@ from django.core import serializers```
 
 - Kemudian, kita bisa langsung menginisiasi fungsi untuk menampilkan format HTML, XML, JSON. XML by ID, dan JSON by ID. Sebagai berikut: (pada views.py)
 ```from django.http import HttpResponse
+=======
+{% endblock content %}
+```
+
+(Saya menambahkan tabel, garis horizontal dan pemberian warna background pada Inventory App saya.)
+
+**2.  Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.**
+
+- Untuk melihat objek dengan format tersebut, langkah pertama yang harus kita lakukan yakni dengan melakukan import di `views.py`
+  ```
+  from django.http import HttpResponse
+  from django.core import serializers
+  ```
+
+- Kemudian, kita bisa langsung menginisiasi fungsi untuk menampilkan format HTML, XML, JSON. XML by ID, dan JSON by ID. Sebagai berikut: (pada views.py)
+```
+from django.http import HttpResponse
+>>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
 from django.core import serializers
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
@@ -418,12 +543,23 @@ def show_xml_by_id(request, id):
 
 def show_json_by_id(request, id):
     data = Item.objects.filter(pk=id)
+<<<<<<< HEAD
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")```
 
 3. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
 
 - Import semua fungsi yang telah dibuat pada `views.py` di direktori main, kemudian tambahkan semua path sesuai dengan fungsi yang telah dibuat sebagai berikut:
 ```from django.urls import path
+=======
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+```
+
+**3. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.**
+
+- Import semua fungsi yang telah dibuat pada `views.py` di direktori main, kemudian tambahkan semua path sesuai dengan fungsi yang telah dibuat sebagai berikut:
+```
+from django.urls import path
+>>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
 from main.views import *
 app_name = 'main'
 
@@ -436,4 +572,43 @@ urlpatterns = [
     path('json/<int:id>/', show_json_by_id, name='show_json_by_id'),
     ]
 
+<<<<<<< HEAD
 ```
+=======
+```
+
+# Mengakses kelima URL di poin 2 menggunakan Postman
+# 1. HTML
+![html1](https://github.com/yoshelinn/yoshe.business/assets/120077685/c0d359bd-e473-4dd8-ae8c-22f5aa9e6bd9)
+![html2](https://github.com/yoshelinn/yoshe.business/assets/120077685/9cc5ec14-c9b5-43d3-a1d8-6882d005677f)
+![html3](https://github.com/yoshelinn/yoshe.business/assets/120077685/3daad420-29c9-4f1a-a41e-60a7f8c7ec10)
+![html4](https://github.com/yoshelinn/yoshe.business/assets/120077685/229d02c4-d861-4687-918e-fa690f82f5a8)
+![html5](https://github.com/yoshelinn/yoshe.business/assets/120077685/f31fc3a3-a9db-4a2d-9e0c-cc9964023a1a)
+
+
+# 2. XML
+![xml1yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/f0c350c8-5250-4568-8314-ec6ffe1cfdaf)
+![xml2yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/0fb20cee-63b8-419f-96bb-cb077909ae9b)
+
+# 3. JSON
+![json1yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/5d29980c-93f6-4268-9311-2db71be0e9ba)
+![json2yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/38bd6a56-7136-41f3-ac74-7e7c1a9fa5ce)
+![json3yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/82570a15-9d66-4f12-a250-93f1fcd4519b)
+
+# 4. XML by ID
+![xmlbyid1yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/3649dedf-277f-4a35-9cfc-16ecad794bc1)
+![xmlbyid2yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/25efd542-5fb8-4de3-92be-6949c5fd6a61)
+![xmlbyid3yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/4977a7fe-6c9e-4415-a41f-ade1914a73eb)
+![xmlbyid4yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/6eec57ea-f6a2-4138-8def-9adbae50c9db)
+
+# 5. JSON by ID
+![jsonbyid1yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/69b12ef8-860a-4004-8d48-900a935c293d)
+![jsonbyid2yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/3daf6f10-a36d-480c-b412-4ac108c2f2b2)
+![jsonbyid3yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/eea3e6ee-d4ca-4ba8-a831-e7569e100dd4)
+![jsonbyid4yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/16a9f309-881b-4130-8c44-918bf6743478)
+
+>>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
+
+# ============================================
+# ₊✧ Tugas 3 PBP ₊✧
+# ============================================

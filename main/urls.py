@@ -12,5 +12,8 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
+    path('add-item/<int:id>/', add_item, name='add_item'),          
+    path('substract-item/<int:id>/', substract_item, name='substract_item'),
+    path('delete-item/<int:id>/', delete_item, name='delete_item'),
     ]
 
