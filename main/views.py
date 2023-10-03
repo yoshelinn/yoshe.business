@@ -109,3 +109,6 @@ def delete_item(request, id):
     product = get_object_or_404(Item, pk=id, user=request.user)
     product.delete()
     return redirect('main:show_main')
+
+def home(request):
+    return render(request, "home.html")

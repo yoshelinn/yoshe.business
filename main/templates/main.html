@@ -1,29 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-
 <style>
     body {
-        background-color: #abd3cc;
+        background-color: #efefef; /* Soft brown background color */
+    }
+    
+    /* Create a grid container */
+    .custom-card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Define your desired column width */
+        grid-gap: 20px; /* Add spacing between cards */
     }
 </style>
 
-<h1 style="color: #00a99d; font-size: 34px;">Selamat Datang di Yosheluxe</h1>
-<p>Elegance and Perfections Bags, Elevating Your Everyday. <p>
-<hr style="border: 1px solid #00a99d ">
-<p>By: Yoshelin | PBP B | 2206826702 <p>
-
-<hr style="border: 1px solid #00a99d ">
-
-<p>     </p>  
-<h5> Nama:  </h5>
+<h1 style="color: #A0522D; font-size: 34px;">Selamat Datang di Yosheluxe</h1>
+<p>Elegance and Perfections Bags, Elevating Your Everyday.</p>
+<hr style="border: 2px solid #A0522D">
+<p>By: Yoshelin | PBP B | 2206826702</p>
+<hr style="border: 1px solid #A0522D">
+<p></p>
+<h5> Nama: </h5>
 <p>{{ name }}</p>
-
 
 <h5> Kelas: </h5>
 <p>{{ class }}</p>
-
 
 <h5> Produk: </h5>
 <p>{{ item }}</p>
@@ -31,91 +32,89 @@
 <p>Kamu telah menyimpan {{ items|length }} item pada aplikasi ini.</p>
 
 <style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-
-    td, th {
-        border: 3px solid #00a99d;
-        text-align: left;
+    /* Updated styles for Bootstrap cards */
+    .custom-card {
+        background-color: #D9B96E; /* Soft brown background color */
+        border: 2px solid #D9B96E; /* Soft brown border color */
+        color: #FFFFFF;
+        border-radius: 15px;
         padding: 10px;
+        /* Remove margin-bottom to allow grid layout */
     }
 
-    th {
-        background-color: #00a99d;
-    }
-</style>
-
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Amount</th>
-        <th>Description</th>
-        <th>Date Added</th>
-    </tr>
-    {% for item in items %}
-        <tr>
-            <td>{{ item.name }}</td>
-            <td>{{ item.price }}</td>
-            <td>{{ item.amount }}</td>
-            <td>{{ item.description }}</td>
-            <td>{{ item.date_added }}</td>
-            <td>
-                <a href="{% url 'main:add_item' item.id %}">
-                    <button type="button">
-                        Add Item
-                    </button>
-                </a>
-                
-                
-                <a href="{% url 'main:substract_item' item.id %}">
-                    <button type="button">
-                        Subtract Item
-                    </button>
-                </a>
-                
-                
-                <a href="{% url 'main:delete_item' item.id  %}">
-                    <button type="button">
-                        Delete Item
-                    </button>
-                </a>
-                
-            </td>
-        </tr>
-
-
-    {% endfor %}
-</table>
-
-<br />
-
-<a href="{% url 'main:create_product' %}">
-    <button>
-        Add New Item
-    </button>
-</a>
-
-<style>
-    h5 {
+    .custom-card h5 {
         font-size: 18px;
     }
 
-    p {
+    .custom-card p {
+        font-size: 16px;
+    }
+
+    .last-item {
+        background-color: #A0522D; /* Background color for the last item */
+        color: #FFFFFF; /* Text color for the last item */
+    }
+
+    .custom-card .action-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .custom-card .action-buttons a {
+        margin: 2px 0;
+    }
+
+    /* Updated button styles to make them brown-colored */
+    .kustom {
+        background-color: #efefef; 
+        color: #000000;
+        padding: 12px 15px;
+        border: none;
+        border-radius: 15px;
+        font-size: 16px;
+    }
+
+    .kustom-button {
+        background-color: #D9B96E; 
+        color: #000000;
+        padding: 12px 15px;
+        border: none;
+        border-radius: 15px;
         font-size: 16px;
     }
 </style>
 
-<a href="{% url 'main:logout' %}">
-    <button type="button">
-        Logout
-    </button>
-</a>
+<!-- Create a container for the grid layout -->
+<div class="custom-card-container">
+    {% for item in items %}
+        <div class="custom-card{% if forloop.last %} last-item{% endif %}">
+            <h5>{{ item.name }}</h5>
+            <p>Price: {{ item.price }}</p>
+            <p>Amount: {{ item.amount }}</p>
+            <p>Description: {{ item.description }}</p>
+            <p>Date Added: {{ item.date_added }}</p>
+            <div class="action-buttons">
+                <a href="{% url 'main:add_item' item.id %}">
+                    <button class="kustom">Add Item</button>
+                </a>
+                <a href="{% url 'main:substract_item' item.id %}">
+                    <button class="kustom">Substract Item</button>
+                </a>
+                <a href="{% url 'main:delete_item' item.id  %}">
+                    <button class="kustom">Delete Item</button>
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 
+<br />
+
+<a href="{% url 'main:create_product' %}">
+    <button class="kustom-button">Add New Item</button>
+</a>
 
 <h5>Sesi terakhir login: {{ last_login }}</h5>
 
 {% endblock content %}
-

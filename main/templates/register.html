@@ -1,34 +1,88 @@
 {% extends 'base.html' %}
 
 {% block meta %}
-    <title>Register</title>
+    <title>Register - Yosheluxe</title>
 {% endblock meta %}
 
-{% block content %}  
+{% block content %}
+<style>
+    h5 {
+        font-size: 36px;
+        color: #A0522D; /* Brown color for heading */
+    }
 
-<div class = "login">
-    
-    <h1>Register</h1>  
+    p {
+        font-size: 16px;
+    }
 
-        <form method="POST" >  
-            {% csrf_token %}  
-            <table>  
-                {{ form.as_table }}  
-                <tr>  
-                    <td></td>
-                    <td><input type="submit" name="submit" value="Daftar"/></td>  
-                </tr>  
-            </table>  
-        </form>
+    /* Background color for the entire page */
+    body {
+        background-color: #efefef; /* Soft brown background color */
+    }
+</style>
 
-    {% if messages %}  
-        <ul>   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-                {% endfor %}  
-        </ul>   
-    {% endif %}
+<p>&nbsp;</p>
+<h5>&nbsp; &nbsp;&nbsp;Welcome to Yosheluxe!</h5>
+<p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Elegance and Perfections Bags, Elevating Your Everyday.</p>
+<p>&nbsp;</p>
 
-</div>  
+<div class="container mt-7">
+    <div class="row justify-content-center">
+        <div class="col-md-6" style="background-color: #efefef; padding: 20px;">
+            <img src="https://i.pinimg.com/564x/bd/9a/de/bd9adede684c5ae0d4a68f9bd271d8e6.jpg" alt="yosheluxe.png" class="img-fluid" style="max-height: 100%;">
+        </div>
 
+        <div class="col-md-6 d-flex justify-content-center align-items-center">
+            <div class="card rounded" style="width: 100%; background-color: #f2e6de;"> <!-- Change background color -->
+                <div class="card-header">
+                    <h1>Create Your Yosheluxe Account</h1> <!-- Update card title -->
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Choose a Username</label> <!-- Update label text -->
+                            <input type="text" name="username" placeholder="Username" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Your Email</label> <!-- Update label text -->
+                            <input type="email" name="email" placeholder="Email" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password1" class="form-label">Create a Password</label> <!-- Update label text -->
+                            <input type="password" name="password1" placeholder="Password" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password2" class="form-label">Confirm Your Password</label> <!-- Update label text -->
+                            <input type="password" name="password2" placeholder="Confirm Password" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <input class="btn btn-success" type="submit" value="Sign Up"> <!-- Change button color -->
+                        </div>
+                    </form>
+
+                    {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    <p>Already have an account? <a href="{% url 'main:login' %}">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #D9B96E; 
+    }
+</style>
 {% endblock content %}

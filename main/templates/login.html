@@ -5,47 +5,73 @@
 {% endblock meta %}
 
 {% block content %}
+<style>
+    h5 {
+        font-size: 36px;
+    }
 
-<div class = "login">
+    p {
+        font-size: 16px;
+    }
+</style>
 
-    <h1>Login</h1>
+<p>&nbsp;</p>
+<h5>&nbsp; &nbsp;&nbsp;Welcome to Yosheluxe!</h5>
+<p>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Elegance and Perfections Bags, Elevating Your Everyday.</p>
+<p>&nbsp;</p>
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
+<div class="container mt-7">
+    <div class="row justify-content-center">
+        <div class="col-md-6" style="background-color: #efefef; padding: 20px;">
+            <img src="https://i.pinimg.com/564x/bd/9a/de/bd9adede684c5ae0d4a68f9bd271d8e6.jpg" alt="yosheluxe.png" class="img-fluid" style="max-height: 100%;">
+        </div>
         
-    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+        <div class="col-md-6 d-flex justify-content-center align-items-center"> 
+            <div class="card rounded" style="width: 100%; background-color: #f2e6de;"> 
+                <div class="card-header">
+                    <h1>Login</h1>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" name="username" placeholder="Username" class="form-control">
+                        </div>
 
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" placeholder="Password" class="form-control">
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="remember">
+                            <label class="form-check-label" for="remember">Remember me</label>
+                        </div>
+
+                        <div class="mb-3">
+                            <input class="btn btn-primary" type="submit" value="Login">
+                        </div>
+                    </form>
+
+                    {% if messages %}
+                        <ul>
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+
+                    <p>Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <style>
     body {
-        background-color: #00a99d; /* Ubah warna latar belakang ke tosca (#00a99d) */
+        background-color: #D9B96E; 
     }
 </style>
-
 {% endblock content %}

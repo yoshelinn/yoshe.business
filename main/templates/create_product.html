@@ -1,19 +1,47 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-<h1>Add New Item</h1>
+<div class="custom-card">
+    <h1 style="color: #A0522D; font-size: 34px;">Add New Item</h1>
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <input type="submit" value="Add Item"/>
-            </td>
-        </tr>
-    </table>
-</form>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Add Item" class="kustom-btn">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<style>
+    /* Style for the Bootstrap card */
+    .custom-card {
+        background-color: #D9B96E; /* Soft brown background color */
+        border: 2px solid #D9B96E; /* Soft brown border color */
+        color: #FFFFFF;
+        border-radius: 15px;
+        padding: 15px;
+        margin-bottom: 10px;
+    }
+
+    .custom-card h1 {
+        font-size: 34px;
+    }
+
+    /* Style for the form submit button */
+    .kustom-btn {
+        background-color: #A0522D; /* Brown button background color */
+        color: #FFFFFF; 
+        padding: 12px 15px;
+        border: none;
+        border-radius: 15px;
+        font-size: 16px;
+    }
+</style>
 
 {% endblock %}
