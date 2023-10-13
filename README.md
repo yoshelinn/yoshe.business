@@ -1087,3 +1087,10 @@ Event-driven programming memiliki paradigma pemrograman yang berfokus pada respo
 
 # Jelaskan penerapan asynchronous programming pada AJAX.
 AJAX adalah singkatan dari Asynchronous JavaScript and XML. Ini berarti AJAX dapat memproses request ke server tanpa memerlukan refresh. Salah satu penggunaan asynchronous programming dalam AJAX adalah pertukaran data, memungkinkan pengiriman dan penerimaan data dari server tanpa refresh page.
+Contohnya: Pembaruan Stok pada Situs E-commerce: Ketika stok produk berubah, AJAX dapat digunakan untuk memperbarui informasi stok secara real-time.
+
+# Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+Dengan mempertimbangkan hal ini, Fetch API merupakan pilihan unggul dalam pengembangan web modern karena lebih ringan, lebih efisien, dan memanfaatkan fitur terbaru JavaScript. Akan tetapi, keputusan akhir bergantung pada proyek dan preferensi pengguna. Jika kita memerlukan integrasi yang luas dengan API atau merasa nyaman dengan penggunaan jQuery,itu masih dapat menjadi pilihan yang baik.  Namun, dalam banyak kasus, Fetch API opsi yang lebih baik untuk pengembangan web yang lebih efisien dan responsif.
+
+# Implementasi Checklist Step by Step:
+1. 
