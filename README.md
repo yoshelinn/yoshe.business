@@ -1079,3 +1079,11 @@ lalu menampilkannya pada main
 | Pemrogramannya berbasis thread, setiap eksekusi dijalankan pada thread terpisah | Menggunakan event loop dimana eksekusi dijadwalkan tanpa perlu membuat banyak thread |
 | Cocok untuk eksekusi yang saling bergantung pada program sebelumnya atau program yang sederhana | Berguna dalam aplikasi yang melibatkan input output yang intendif seperti web servers, atau aplikasi database, karena harus menangangi banyak request secara bersamaan tanpa menghambat eksekusi program |
 
+Penggunaan antara synchronous dan asynchronous programming tergantung pada jenis tugas dan kebutuhan aplikasi. Sync programming cocok untuk program yang tidak perlu di eksekusi secara bersamaan, dan programnya lebih sederhana. Sementara, async programming cocok untuk tugas yang melibatkan banyak I/O yang harus menangani request dari user yang cukup banyak secara bersamaan.
+
+# Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Event-driven programming memiliki paradigma pemrograman yang berfokus pada respons terhadap action atau interaksi pengguna. Dalam pendekatan ini, program akan memiliki daftar action yang sudah didefinisikan sebelumnya, dan ketika tindakan/ action tersebut terjadi, program akan menjalankan handling yang sesuai.
+  `document.getElementById("button_add").onclick = addItem`
+
+# Jelaskan penerapan asynchronous programming pada AJAX.
+AJAX adalah singkatan dari Asynchronous JavaScript and XML. Ini berarti AJAX dapat memproses request ke server tanpa memerlukan refresh. Salah satu penggunaan asynchronous programming dalam AJAX adalah pertukaran data, memungkinkan pengiriman dan penerimaan data dari server tanpa refresh page.
