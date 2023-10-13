@@ -1060,8 +1060,8 @@ class Item(models.Model):
 
 5. Delete cookies saat logout dan menampilkan last loginnya pada main.html
 
-`response.delete_cookie('last_login')`
+    `response.delete_cookie('last_login')`
 
 lalu menampilkannya pada main
 
-`<h5>Sesi terakhir login: {{ last_login }}</h5>`
+    `<h5>Sesi terakhir login: {{ last_login }}</h5>`
