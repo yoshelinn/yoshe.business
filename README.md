@@ -9,50 +9,32 @@ NPM     :   2206826702
 
 Tautan repository Adaptable: (already disabled...)
 
-<<<<<<< HEAD
-# ============================================
-# ₊✧ Tugas 1 PBP ₊✧
-# ============================================
+
+# ===========================
+# ₊✧ Tugas 2 PBP ₊✧
+# ===========================
 # Implementasi Checklist Step by Step
+
 # 1.  Checklist 1:  Membuat sebuah proyek Django baru.
 Django adalah sebuah framework website yang bersifat open source dalam Python yang tujuannya untuk web developing secara efisien dan aman.
 
 - Untuk membuat proyek Django baru, step pertama yang perlu dilakukan adalah mengaktifkan virtual environment. Pengaktifan virtual environment dapat dilakukan dengan cara memasukkan perintah ini pada terminal:
   
-            `python -m venv env``
-
-- Kemudian, untuk memunculkan (env) pada terminal, kita perlu memasukkan: 
-=======
-# =====================================
-# ₊✧ Tugas 1 PBP ₊✧
-# =====================================
-# Implementasi Checklist Step by Step
-# 1.  Checklist 1:  Membuat sebuah proyek Django baru.
-Django adalah sebuah framework website yang bersifat open source dalam Python yang tujuannya untuk web developing secara efisien dan aman.
-
-- Untuk membuat proyek Django baru, step pertama yang perlu dilakukan adalah mengaktifkan virtual environment. Pengaktifan virtual environment dapat dilakukan dengan cara memasukkan perintah ini pada terminal:
-  
-            ```python -m venv env`
+            `python -m venv env`
 
 - Kemudian, untuk memunculkan (env) pada terminal, kita perlu memasukkan: 
 
             `env\Scripts\activate.bat`
->>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
+
 
 pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment sudah aktif.
 
-<<<<<<< HEAD
 pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment sudah aktif.
 
 - Langkah selanjutnya yang perlu dilakukan ialah menyiapkan dependencies. Dependencies dapat memastikan bahwa program atau proyek tertentu dapat berjalan tanpa kesalahan. Di dalam direktori, saya membuat `requirements.txt`` yang berisi:
 
-        ```python
-=======
-- Langkah selanjutnya yang perlu dilakukan ialah menyiapkan dependencies. Dependencies dapat memastikan bahwa program atau proyek tertentu dapat berjalan tanpa kesalahan. Di dalam direktori, saya membuat `requirements.txt`` yang berisi:
-
-  ```
+  ```python
         python
->>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
         django
         gunicorn
         whitenoise
@@ -60,11 +42,9 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
         requests
         urllib3 
         
-<<<<<<< HEAD
-        ```
-=======
+
    ```
->>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
+
 - Dependencies kemudian di install dengan menjalankan perintah ini pada terminal:
 
             `pip install -r requirements.txt`
@@ -73,7 +53,7 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
 
             `pip install django`
 
-            `django-admin startproject mysite .`
+            `django-admin startproject mysite`
 
 - Pada settings.py, kita perlu menambahkan `"*"` pada `ALLOWED_HOST` untuk mengubah pengaturan akses.
 - Menambahkan berkas `.gitignore`
@@ -96,39 +76,27 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
 # 3. Checklist 3: Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
  - Pertama tama, kita perlu setup `urls.py` di app `main` dengan mengisi
 
-<<<<<<< HEAD
-       ```from django.urls import path
-=======
-   ```
+ 
+```python
         from django.urls import path
->>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
         from main.views import show_main
         app_name = 'main'
 
         urlpatterns = [
             path('', show_main, name='show_main'),
         ]
-   ```
+```
 
 
 - Tambahkan rute URL seperti berikut untuk mengarahkan ke tampilan main
      
-<<<<<<< HEAD
-          ```urlpatterns = [
-=======
-  ```
+  ```python
              urlpatterns = [
->>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
             ...
             path('main/', include('main.urls')),
             ...
-          ]
-<<<<<<< HEAD
-          ``` '''
-=======
-          
+          ] 
   ```
->>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
      
 # 4. Checklist 4: Membuat model pada aplikasi main dengan nama `Item`` dan memiliki atribut wajib
 - Melakukan setup pada `item` sesuai dengan ketentuan soal, pada atribut `nama, amount, date_added, price, description`
@@ -155,11 +123,10 @@ pada command prompt, kemunculan (env) menjadi tanda bahwa virtual environment su
 
 
 # Bagan yang berisi request client ke web aplikasi berbasis Django
-<<<<<<< HEAD
+ 
 ![image](https://github.com/yoshelinn/yoshe.business/assets/120077685/4075faa6-92e9-4e74-8c83-2ec660656bc5)
 =======
 ![Bagan_Django_Yoshelin](https://github.com/yoshelinn/yoshe.business/assets/120077685/081f0139-bc81-4284-8db7-27e577b68356)
->>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
 
  - Keterkaitan antara urls.py dan views.py adalah bahwa urls.py berfungsi untuk menguraikan argumen dari URL dan meneruskannya ke views.py yang sesuai. Setelah itu, views.py akan mengambil permintaan tersebut dan menghasilkan respons web yang sesuai.
 
@@ -204,9 +171,9 @@ Model: Seperti dalam MVC dan MVT, Model mengelola data dan logika bisnis aplikas
 3. Struktur Pengembangan: Struktur MVC lebih berfokus pada kontrol alur aplikasi, sedangkan MVT lebih berfokus pada tampilan yang dihasilkan dari Template. MVVM menambahkan abstraksi tambahan untuk mengelola tampilan dengan baik.
 
 
-# ============================================
-# ₊✧ Tugas 2 PBP ₊✧
-# ============================================
+# ===========================
+# ₊✧ Tugas 3 PBP ₊✧
+# ===========================
 
 # 1. Checklist 1: Apa perbedaan antara form POST dan form GET dalam Django?
 Dalam Django, kita dapat menggunakan metode POST dan GET untuk mengirim data dari formulir HTML ke server web Django.
@@ -224,7 +191,7 @@ Form GET tingkat keamanannya lebih rendah dari form POST karena data nya bersifa
 - Aspek Kapasitas
 Form POST memiliki batasan ukuran data yang dapat di-deliver lebih besar dibandingkan degan form GET.
 
-<<<<<<< HEAD
+ 
 # Checklist 2: Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
 ![Alt text](image.png)
 
@@ -238,29 +205,8 @@ Form POST memiliki batasan ukuran data yang dapat di-deliver lebih besar dibandi
 
 1. Membuat input form untuk menambahkan objek model pada app sebelumnya.
 - Pertama tama, buat `base.html` pada template yang ada di root
-```{% load static %}
-=======
-# 2. Checklist 2: Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
-Perbedaan dapat dilihat di tabel berikut ini:
-![Perbedaan](https://github.com/yoshelinn/yoshe.business/assets/120077685/31b5367b-98aa-4d0a-997b-461574eee259)
-
-
-# 3. Checklist 3: Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
-**1.** Format JSON readable sehingga mudah dimengerti
-
-**2.** Compatible dengan banyak bahasa pemrograman
-
-**3.** Format data yang digunakan JSON merupakan format data umum dalam API, untuk mengirim permintaan dan menerima respons.
-
-**4.** Pertukaran data antar server dan klien aman
-
-# 4. Checklist 4: Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step 
-
-**1. Membuat input form untuk menambahkan objek model pada app sebelumnya.**
-- Pertama tama, buat `base.html` pada template yang ada di root
-```
+```html
 {% load static %}
->>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -277,47 +223,51 @@ Perbedaan dapat dilihat di tabel berikut ini:
         {% block content %}
         {% endblock content %}
     </body>
-</html>```
+</html>
+```
 
 - Kemudian, kita add `settings.py` dengan kode agar base.html dapat dideteksi sebagai templates
-```TEMPLATES = [
+```python
+TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [BASE_DIR / 'templates'], # Tambahkan kode ini
         'APP_DIRS': True,
         ...
     }
-<<<<<<< HEAD
-] ```
+ 
+]
+```
 
 - Pada `forms.py` kita mengimpor `ModelForm` dan Item yang berisi fields, yang bertujuan untuk menambah item ke database dengan `ModelForm`
 
-```from django.forms import ModelForm
+```python
+from django.forms import ModelForm
 from main.models import Item
 
 class ProductForm(ModelForm):
     class Meta:
         model = Item
         fields = ["name", "amount", "description", "price" ]
-        ```
+```
 
 - Pada `templates > create_product.html`, 
 berisi fungsi `create_product(request)` yang dapat mengakses file `create_product.html` untuk menerima request, membuat dan menyimpan data yang diinput pada form.
- ```from django.http import HttpResponse
-from django.core import serializers
-from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from main.forms import ProductForm
-from django.urls import reverse
-from main.models import Item
-from django.forms import ModelForm
-=======
-]
+ ```python
+    from django.http import HttpResponse
+    from django.core import serializers
+    from django.shortcuts import render
+    from django.http import HttpResponseRedirect
+    from main.forms import ProductForm
+    from django.urls import reverse
+    from main.models import Item
+    from django.forms import ModelForm
+    ]
 ```
 
 - Pada `forms.py` kita mengimpor `ModelForm` dan Item yang berisi fields, yang bertujuan untuk menambah item ke database dengan `ModelForm`
 
-  ```
+  ```python
          from django.forms import ModelForm
          from main.models import Item
 
@@ -329,8 +279,8 @@ from django.forms import ModelForm
 
 - Pada `templates > create_product.html`, 
 berisi fungsi `create_product(request)` yang dapat mengakses file `create_product.html` untuk menerima request, membuat dan menyimpan data yang diinput pada form.
- ```
-from django.http import HttpResponse
+ ```html
+    from django.http import HttpResponse
     from django.core import serializers
     from django.shortcuts import render
     from django.http import HttpResponseRedirect
@@ -338,7 +288,6 @@ from django.http import HttpResponse
     from django.urls import reverse
     from main.models import Item
     from django.forms import ModelForm
->>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
 
 def show_main(request):
     items = Item.objects.all()
@@ -362,30 +311,26 @@ def create_product(request):
 
     context = {'form': form}
     return render(request, "create_product.html", context)
-    ```
+ ```
 
 
 - Memodifikasi `urls.py` dengan add `create_product`
-    ```from main.views import *
+    ```python
+    from main.views import *
     from django.urls import path
-from main.views import *
-app_name = 'main'
+    from main.views import *
+    app_name = 'main'
+      
+    urlpatterns = [
+      path('', show_main, name='show_main'),
+      path('create-product', create_product, name='create_product'),
+      ]
+    ```
 
-urlpatterns = [
-    path('', show_main, name='show_main'),
-    path('create-product', create_product, name='create_product'),
-]
-...
-```
-
-<<<<<<< HEAD
+ 
 - Dengan form yang sudah ada, maka itu dapat menjadi bekal untuk melengkapi `create_product.html` dan `main` sebagai berikut:
-```{% extends 'base.html' %}
-=======
-**- Dengan form yang sudah ada, maka itu dapat menjadi bekal untuk melengkapi `create_product.html` dan `main` sebagai berikut:**
-```
+```html
 {% extends 'base.html' %}
->>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
 
 {% block content %}
 <style>
@@ -467,37 +412,23 @@ urlpatterns = [
     }
 </style>
 
-<<<<<<< HEAD
-{% endblock content %} ```
+ 
+{% endblock content %}
+```
 
 (Saya menambahkan tabel, garis horizontal dan pemberian warna background pada Inventory App saya.)
 
 2.  Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
 
 - Untuk melihat objek dengan format tersebut, langkah pertama yang harus kita lakukan yakni dengan melakukan import di `views.py`
-```from django.http import HttpResponse
-from django.core import serializers```
-
-- Kemudian, kita bisa langsung menginisiasi fungsi untuk menampilkan format HTML, XML, JSON. XML by ID, dan JSON by ID. Sebagai berikut: (pada views.py)
-```from django.http import HttpResponse
-=======
-{% endblock content %}
-```
-
-(Saya menambahkan tabel, garis horizontal dan pemberian warna background pada Inventory App saya.)
-
-**2.  Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.**
-
-- Untuk melihat objek dengan format tersebut, langkah pertama yang harus kita lakukan yakni dengan melakukan import di `views.py`
-  ```
-  from django.http import HttpResponse
-  from django.core import serializers
-  ```
-
-- Kemudian, kita bisa langsung menginisiasi fungsi untuk menampilkan format HTML, XML, JSON. XML by ID, dan JSON by ID. Sebagai berikut: (pada views.py)
-```
+```python
 from django.http import HttpResponse
->>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
+from django.core import serializers
+```
+
+- Kemudian, kita bisa langsung menginisiasi fungsi untuk menampilkan format HTML, XML, JSON. XML by ID, dan JSON by ID. Sebagai berikut: (pada views.py)
+```python
+from django.http import HttpResponse
 from django.core import serializers
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
@@ -543,23 +474,16 @@ def show_xml_by_id(request, id):
 
 def show_json_by_id(request, id):
     data = Item.objects.filter(pk=id)
-<<<<<<< HEAD
-    return HttpResponse(serializers.serialize("json", data), content_type="application/json")```
-
-3. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
-
-- Import semua fungsi yang telah dibuat pada `views.py` di direktori main, kemudian tambahkan semua path sesuai dengan fungsi yang telah dibuat sebagai berikut:
-```from django.urls import path
-=======
+ 
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 ```
+
 
 **3. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.**
 
 - Import semua fungsi yang telah dibuat pada `views.py` di direktori main, kemudian tambahkan semua path sesuai dengan fungsi yang telah dibuat sebagai berikut:
-```
+```python
 from django.urls import path
->>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
 from main.views import *
 app_name = 'main'
 
@@ -571,10 +495,6 @@ urlpatterns = [
     path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),
     path('json/<int:id>/', show_json_by_id, name='show_json_by_id'),
     ]
-
-<<<<<<< HEAD
-```
-=======
 ```
 
 # Mengakses kelima URL di poin 2 menggunakan Postman
@@ -607,11 +527,9 @@ urlpatterns = [
 ![jsonbyid3yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/eea3e6ee-d4ca-4ba8-a831-e7569e100dd4)
 ![jsonbyid4yoshe](https://github.com/yoshelinn/yoshe.business/assets/120077685/16a9f309-881b-4130-8c44-918bf6743478)
 
->>>>>>> 3dd4167b115e299b8fef6cfc62bd3c295a370f1a
-
-# ============================================
-# ₊✧ Tugas 3 PBP ₊✧
-# ============================================
+# ===========================
+# ₊✧ Tugas 4 PBP ₊✧
+# ===========================
 
 # Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
 
@@ -646,6 +564,303 @@ UserCreationForm dalam Django adalah bagian dari sistem otentikasi pengguna buil
 - Selain itu, penyerang juga dapat melakukan serangan Cross-Site Scripting (XSS) untuk mencuri cookies pengguna dan menjalankan tindakan jahat di situs web yang dimiliki oleh penyerang, seperti mengganti informasi pengguna atau mengambil alih akun. 
 
 - Oleh karena itu, penting untuk selalu menjaga keamanan cookies.
+
+# Implementasi Checklist Step by Step
+1. Menambahkan import terlebih dahulu
+    ```python
+    from django.shortcuts import redirect
+    from django.contrib.auth.forms import UserCreationForm
+    from django.contrib import messages  
+    ```
+2. Membuat fungsi baru di `views.py` yaitu register
+```python
+    def register(request):
+    form = UserCreationForm
+
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your account has been successfully created!')
+            return redirect('main:login')
+    context = {'form':form}
+    return render(request, 'register.html', context)
+```
+
+3. Pada `main/templates`, kita buat file HTML berupa `register.html`
+```html
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Register</title>
+{% endblock meta %}
+
+{% block content %}  
+
+<div class = "login">
+    
+    <h1>Register</h1>  
+
+        <form method="POST" >  
+            {% csrf_token %}  
+            <table>  
+                {{ form.as_table }}  
+                <tr>  
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Daftar"/></td>  
+                </tr>  
+            </table>  
+        </form>
+
+    {% if messages %}  
+        <ul>   
+            {% for message in messages %}  
+                <li>{{ message }}</li>  
+                {% endfor %}  
+        </ul>   
+    {% endif %}
+
+</div>  
+
+{% endblock content %}
+```
+
+4. Menambahkan path baru yakni `regiter` pada `urls.py`
+    ```python
+    from main.views import register
+    urlpatterns = [
+    ...
+    path('register/',register,name='register'),
+    ]
+    ```
+
+5. Membuat fungsi login user pada `views.py`
+    ```python
+    def login_user(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            response = HttpResponseRedirect(reverse("main:show_main")) 
+            response.set_cookie('last_login', str(datetime.datetime.now()))
+            return response
+        else:
+                messages.info(request, 'Sorry, incorrect username or password. Please try again.')
+    context = {}
+    return render(request, 'login.html', context)
+    ```
+
+6. Membuat `login.html` pada templates sebagai berikut:
+```html
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Login</title>
+{% endblock meta %}
+
+{% block content %}
+
+<div class = "login">
+
+    <h1>Login</h1>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Username: </td>
+                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+            </tr>
+                    
+            <tr>
+                <td>Password: </td>
+                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input class="btn login_btn" type="submit" value="Login"></td>
+            </tr>
+        </table>
+    </form>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}     
+        
+    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+
+</div>
+
+<style>
+    body {
+        background-color: #00a99d; /* Ubah warna latar belakang ke tosca (#00a99d) */
+    }
+</style>
+
+{% endblock content %}
+```
+
+(Tidak lupa untuk menambahkan path login di urls.py nya)
+
+7. Membuat fungsi logout pada `views.py`, dan menambahkan path nya pada `urls.py`
+
+```python
+      def logout_user(request):
+          logout(request)
+          response = HttpResponseRedirect(reverse('main:login'))
+          response.delete_cookie('last_login')
+          return response
+```
+
+8. Membuat button pada `main.html`
+
+```html
+    <a href="{% url 'main:logout' %}">
+        <button type="button">
+            Logout
+        </button>
+    </a>
+```
+
+# Menghubungkan Item dan Pengguna
+1. Pada models.py, kita import user dan menambahkan atributnya
+```python
+from django.db import models
+from django.contrib.auth.models import User
+
+class Item(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  
+```
+
+2. Pada fungsi create_product, ubah fungsinya agar terhubung dengan user.
+    ```python
+    def create_product(request):
+    form = ProductForm(request.POST or None)
+
+    if form.is_valid() and request.method == "POST":
+        item = form.save(commit=False)
+        item.user = request.user
+        item.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "create_product.html", context)
+    ```
+
+3. Menambahkan filter pada `views.py`
+```python
+    def show_main(request):
+    Items = Item.objects.filter(user=request.user)
+```
+
+4. Menampilkan detail logged in users dengan last_login pada fungsi show_main
+`'last_login': request.COOKIES['last_login'], `
+
+5. Delete cookies saat logout dan menampilkan last loginnya pada main.html
+`response.delete_cookie('last_login')`
+
+lalu menampilkannya pada main
+`<h5>Sesi terakhir login: {{ last_login }}</h5>`
+
+# ===========================
+# ₊✧ Tugas 5 PBP ₊✧
+# ===========================
+
+#  Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+1. Element selector
+   Digunakan ketika kita ingin mengubah gaya semua elemen dengan tag yang sama di seluruh page
+   ```html
+   p {
+    color: blue;
+    }
+    ```
+
+2. Class Selector
+   Digunakan ketika Anda ingin memberikan gaya atau gaya yang sama kepada beberapa elemen yang memiliki kesamaan style.
+   ```html
+    <p class="highlight">Ini char di-highlight.</p>
+    <p>Ini adalah teks biasa.</p>
+    
+    .highlight {
+        background-color: yellow;
+    }
+   ```
+
+3. ID Selector
+   Digunakan ketika Anda ingin style khusus pada satu elemen saja yang memiliki ID khusus.
+   ```html
+    <div id="header">Ini header</div>
+    <div>Ini isi konten.</div>
+    
+    #header {
+        font-size: 24px;
+    }
+   ```
+
+# Jelaskan HTML5 Tag yang kamu ketahui.
+title: Menentukan judul halaman web
+
+head: Berisi informasi metadata dokumen, seperti judul dan link ke stylesheets
+
+html: Mendefinisikan dokumen HTML
+
+meta: Mendefinisikan metadata seperti karakter set dan deskripsi
+
+div: Mengelompokkan dan merapikan elemen HTML
+
+body: Berisi konten utama halaman website
+
+p: Menampilkan teks dalam paragraf
+
+a: Membuat link ke halaman web atau source
+
+img: Menampilkan gambar di web
+
+h1, h2, ..., h6: Mengatur heading level 1 hingga 6
+
+br: Menambahkan line break dalam teks
+
+hr: Menambahkan garis horizontal untuk memisahkan konten
+
+form: Membuat formulir yang meminta input dari pengguna
+
+input: Menambahkan kontrol input dalam forms seperti teks, password, dll
+
+button: Membuat tombol yang dapat diklik
+
+table: Membuat tabel dalam format terstruktur
+
+tr: Menandai baris dalam tabel
+
+td: Menandai sel dalam tabel.
+
+th: Menandai header dalam tabel.
+
+#  Jelaskan perbedaan antara margin dan padding.
+![image](https://github.com/yoshelinn/yoshe.business/assets/120077685/4640f3cb-66f5-4349-a47c-1b20be0e0022)
+- Margin adalah ruang kosong di sekitar elemen HTML, yang mengatur jarak antara elemen tersebut dan elemen-elemen lain atau tepi page browser. argin digunakan untuk mengatur jarak antara elemen-elemen tersebut sehingga dapat menciptakan tata letak yang sesuai dalam desain web.
+
+- Padding adalah ruang kosong di dalam elemen HTML, yang mengatur jarak antara tepi elemen dan konten di dalam elemen tersebut. Dapat membantu dalam mengontrol tata letak dan penampilan elemen, serta memberikan ruang di sekitar konten untuk estetika dan kenyamanan pengguna.
+
+# Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+
+Tailwind CSS adalah kerangka kerja CSS yang menggabungkan class yang telah didefinisikan sebelumnya, sementara Bootstrap menggunakan gaya dan komponen yang sudah terdefinisi sebelumnya. Bootstrap juga menyediakan tampilan yang siap pakai dan dapat digunakan langsung.
+
+Tailwind CSS lebih fleksibel dan dapat disesuaikan dengan berbagai jenis proyek. Sebaliknya, Bootstrap menawarkan konsistensi yang tinggi dalam tampilan dan perilaku komponen karena sudah terdefinisi sebelumnya. Dalam ukuran file CSS, Tailwind cenderung lebih kecil daripada Bootstrap.
+
+Pemilihan antara Tailwind dan Bootstrap tergantung pada kebutuhan proyek masing-masing. Jika Anda ingin membuat website dengan tata letak umum dan ingin cepat di-build, Bootstrap bisa menjadi pilihan yang baik. 
+Namun, jika Anda memerlukan tata letak yang sangat fleksibel dan ingin lebih banyak kontrol dalam merancang tampilan, maka Tailwind bisa menjadi pilihan yang lebih baik.
+
+Kedua kerangka kerja ini memiliki fungsionalitas yang berbeda dan idealnya digunakan berdasarkan kebutuhan spesifik proyek kita. Tailwind memungkinkan kita untuk membangun desain yang lebih customize-able, sementara Bootstrap cocok untuk proyek-proyek yang membutuhkan solusi cepat dan siap pakai.
+
+# Implementasi Checklist Step-By-Step
 
 # Implementasi Checklist Step by Step
 1. Menambahkan import terlebih dahulu
