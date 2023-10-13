@@ -864,13 +864,14 @@ Kedua kerangka kerja ini memiliki fungsionalitas yang berbeda dan idealnya digun
 
 # Implementasi Checklist Step by Step
 1. Menambahkan import terlebih dahulu
-    ``` 
+    ```python
     from django.shortcuts import redirect
     from django.contrib.auth.forms import UserCreationForm
     from django.contrib import messages  
     ```
 2. Membuat fungsi baru di `views.py` yaitu register
-``` def register(request):
+```python
+def register(request):
     form = UserCreationForm
 
     if request.method == "POST":
@@ -880,10 +881,11 @@ Kedua kerangka kerja ini memiliki fungsionalitas yang berbeda dan idealnya digun
             messages.success(request, 'Your account has been successfully created!')
             return redirect('main:login')
     context = {'form':form}
-    return render(request, 'register.html', context)```
+    return render(request, 'register.html', context)
+```
 
 3. Pada `main/templates`, kita buat file HTML berupa `register.html`
-```
+```html
 {% extends 'base.html' %}
 
 {% block meta %}
@@ -921,7 +923,7 @@ Kedua kerangka kerja ini memiliki fungsionalitas yang berbeda dan idealnya digun
 ```
 
 4. Menambahkan path baru yakni `regiter` pada `urls.py`
-    ```
+    ```python
     from main.views import register
     urlpatterns = [
     ...
@@ -930,7 +932,7 @@ Kedua kerangka kerja ini memiliki fungsionalitas yang berbeda dan idealnya digun
     ```
 
 5. Membuat fungsi login user pada `views.py`
-    ```
+    ```python
     def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -948,7 +950,7 @@ Kedua kerangka kerja ini memiliki fungsionalitas yang berbeda dan idealnya digun
     ```
 
 6. Membuat `login.html` pada templates sebagai berikut:
-```
+```html
 {% extends 'base.html' %}
 
 {% block meta %}
@@ -1005,7 +1007,7 @@ Kedua kerangka kerja ini memiliki fungsionalitas yang berbeda dan idealnya digun
 (Tidak lupa untuk menambahkan path login di urls.py nya)
 
 7. Membuat fungsi logout pada `views.py`, dan menambahkan path nya pada `urls.py`
-```
+```python
 def logout_user(request):
     logout(request)
     response = HttpResponseRedirect(reverse('main:login'))
@@ -1014,7 +1016,7 @@ def logout_user(request):
 ```
 
 8. Membuat button pada `main.html`
-```
+```html
 <a href="{% url 'main:logout' %}">
     <button type="button">
         Logout
@@ -1024,7 +1026,8 @@ def logout_user(request):
 
 # Menghubungkan Item dan Pengguna
 1. Pada models.py, kita import user dan menambahkan atributnya
-```from django.db import models
+```python
+from django.db import models
 from django.contrib.auth.models import User
 
 class Item(models.Model):
@@ -1044,19 +1047,19 @@ class Item(models.Model):
 
     context = {'form': form}
     return render(request, "create_product.html", context)
-        ```
+```
 
 3. Menambahkan filter pada `views.py`
-```
+```python
     def show_main(request):
     Items = Item.objects.filter(user=request.user)
 ```
 
 4. Menampilkan detail logged in users dengan last_login pada fungsi show_main
-`        'last_login': request.COOKIES['last_login'],`  
+`last_login': request.COOKIES['last_login'],`  
 
 5. Delete cookies saat logout dan menampilkan last loginnya pada main.html
-` response.delete_cookie('last_login')`
+`response.delete_cookie('last_login')`
 
 lalu menampilkannya pada main
 `<h5>Sesi terakhir login: {{ last_login }}</h5>`
