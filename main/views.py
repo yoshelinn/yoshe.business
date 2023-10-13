@@ -14,7 +14,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
-
+from django.views.decorators.csrf import csrf_exempt
 
 @login_required(login_url='/login')
 def show_main(request):
@@ -112,3 +112,47 @@ def delete_item(request, id):
 
 def home(request):
     return render(request, "home.html")
+
+def get_item_json(request):
+    product_item = Item.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', product_item))
+
+@csrf_exempt
+def increment_item_ajax(request, id):
+    item = Item.objects.get(pk=id)
+    item.amount += 1
+    item.save()
+    return HttpResponse(b"DELETED", status=201)
+
+@csrf_exempt
+def decrement_item_ajax(request, id):
+    item = Item.objects.get(pk=id)
+    item.amount -= 1
+    item.save()
+    return HttpResponse(b"DELETED", status=201)
+
+@csrf_exempt
+def add_item_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        amount = request.POST.get("amount")
+        price = request.POST.get("price")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_product = Item(name=name, amount=amount, price=price, description=description, user=user)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+
+@csrf_exempt
+def delete_ajax(request):
+   if request.method == 'DELETE':
+      id_Item = request.GET.get("id")
+      user = request.user
+      product = Item.objects.get(pk=id_Item, user=user)
+      product.delete()
+      return HttpResponse(b"DELETED", status=204)
+   return HttpResponseNotFound()

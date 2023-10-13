@@ -16,5 +16,10 @@ urlpatterns = [
     path('substract-item/<int:id>/', substract_item, name='substract_item'),
     path('delete-item/<int:id>/', delete_item, name='delete_item'),
     path('home/', home, name='home'),
-    ]
+    path('get-item/', get_item_json, name='get_item_json'),
+    path('create-ajax/', add_item_ajax, name='add_item_ajax'),
+    path('increment-item-ajax/<int:id>/', increment_item_ajax, name='increment_item_ajax'),
+    path('decrement-item-ajax/<int:id>/', decrement_item_ajax, name='decrement_item_ajax'),
+    path('delete-ajax/', delete_ajax, name='delete_ajax'),
+]
 
