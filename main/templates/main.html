@@ -170,14 +170,13 @@
             cardContainer.innerHTML += `
             <div class="card-item">
                 <div class="card mx-auto p-3" style="width: 18rem;">
-                    <div class="card-body">
+                    <div class="card-body">s
                         <h4 class="card-title">${item.fields.name}</h4>
-                        <p class="card-text">Amount: ${item.fields.amount} 
-                            <button class="btn increment btn-sm rounded-full" onclick="incrementAmount(${item.pk})">+</button> 
-                            <button class="btn decrement btn-sm rounded-full" onclick="decrementAmount(${item.pk})">-</button>
-                        </p>
+                        <p class="card-text">Amount: ${item.fields.amount} </p>
                         <p class="card-text">${item.fields.description}</p>
                         <button style="justify-content: baseline;" class="btn delete_item" onclick="deleteItem(${item.pk})">Delete</button>
+                        <button class="btn increment btn-sm rounded-full" onclick="incrementAmount({{ item.pk }})">Add</button>
+                        <button class="btn decrement btn-sm rounded-full" onclick="decrementAmount({{ item.pk }})">Substract</button>
                     </div>
                 </div>
             </div>`; 
