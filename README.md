@@ -1065,3 +1065,17 @@ class Item(models.Model):
 lalu menampilkannya pada main
 
     `<h5>Sesi terakhir login: {{ last_login }}</h5>`
+
+
+# ===========================
+# ₊✧ Tugas 6 PBP ₊✧
+# ===========================
+
+# Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+| Synchronus programming | Asynchronus programming |
+|------------------------|--------------------------|
+| Code dieksekusi secara berurutan dan harus menunggu eksekusi sebelumnya selesai | Code program dieksekusi tidak berurutan, dapat dieksekusi secara paralel |
+| Program logic dieksekusi mengurut dari atas sampai bawah | Program dapat menjalankan eksekusi secara bersamaan |
+| Pemrogramannya berbasis thread, setiap eksekusi dijalankan pada thread terpisah | Menggunakan event loop dimana eksekusi dijadwalkan tanpa perlu membuat banyak thread |
+| Cocok untuk eksekusi yang saling bergantung pada program sebelumnya atau program yang sederhana | Berguna dalam aplikasi yang melibatkan input output yang intendif seperti web servers, atau aplikasi database, karena harus menangangi banyak request secara bersamaan tanpa menghambat eksekusi program |
+
