@@ -1093,4 +1093,257 @@ Contohnya: Pembaruan Stok pada Situs E-commerce: Ketika stok produk berubah, AJA
 Dengan mempertimbangkan hal ini, Fetch API merupakan pilihan unggul dalam pengembangan web modern karena lebih ringan, lebih efisien, dan memanfaatkan fitur terbaru JavaScript. Akan tetapi, keputusan akhir bergantung pada proyek dan preferensi pengguna. Jika kita memerlukan integrasi yang luas dengan API atau merasa nyaman dengan penggunaan jQuery,itu masih dapat menjadi pilihan yang baik.  Namun, dalam banyak kasus, Fetch API opsi yang lebih baik untuk pengembangan web yang lebih efisien dan responsif.
 
 # Implementasi Checklist Step by Step:
-1. 
+1. Pertama, buat function pada `views.py` untuk mendapat data JSON
+```python
+def get_item_json(request):
+    product_item = Item.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', product_item))
+```
+
+2. Untuk menambah dan menghapus product dengan AJAX, saya menambahkan `views.py` dengan beberapa function:
+```python
+@csrf_exempt
+def increment_item_ajax(request, id):
+    item = Item.objects.get(pk=id)
+    item.amount += 1
+    item.save()
+    return HttpResponse(b"DELETED", status=201)
+
+@csrf_exempt
+def decrement_item_ajax(request, id):
+    item = Item.objects.get(pk=id)
+    item.amount -= 1
+    item.save()
+    return HttpResponse(b"DELETED", status=201)
+
+@csrf_exempt
+def add_item_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        amount = request.POST.get("amount")
+        price = request.POST.get("price")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_product = Item(name=name, amount=amount, price=price, description=description, user=user)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+
+@csrf_exempt
+def delete_ajax(request):
+   if request.method == 'DELETE':
+      id_Item = request.GET.get("id")
+      user = request.user
+      product = Item.objects.get(pk=id_Item, user=user)
+      product.delete()
+      return HttpResponse(b"DELETED", status=204)
+   return HttpResponseNotFound()
+```
+
+3. Tambahkan path URL nya pada urls.py di direktori main.
+```python
+    path('create-ajax/', add_item_ajax, name='add_item_ajax'),
+    path('increment-item-ajax/<int:id>/', increment_item_ajax, name='increment_item_ajax'),
+    path('decrement-item-ajax/<int:id>/', decrement_item_ajax, name='decrement_item_ajax'),
+    path('delete-ajax/', delete_ajax, name='delete_ajax'),
+```
+
+4. Menampilkan form untuk menambahkan item dengan kode berikut:
+```html
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Item</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form" onsubmit="return false;">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="col-form-label">Amount:</label>
+                        <input type="number" class="form-control" id="amount" name="amount"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="col-form-label">Price:</label>
+                        <input type="number" class="form-control" id="price" name="price"></input>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" id="button_add">Add Item</button>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+5. Menambahkan button `Add Item by AJAX`
+```html
+<div class="container">
+    <h2 class="name"> Welcome to Yosheluxe </h2>
+
+    {% with total_items=items|length%}
+        <h5 class="total">Kamu menyimpan {{ total_items }} item pada Yosheluxe </h5>
+        <br>
+    {% endwith %}
+
+    <div class="flex" id="item-container"></div>
+
+    <br/>
+
+    <button
+        type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Add Item by Ajax
+    </button>
+
+    <a href="{% url 'main:logout' %}">
+        <button class="btn btn-primary">
+            Logout
+        </button>
+    </a>
+
+    <h4 class="sesion">Sesi terakhir login: {{ last_login }}</h4>
+</div>
+```
+
+6. Membuat `<Script>` pada `main.html`
+```html
+<script>
+    async function getItems() {
+        return fetch("{% url 'main:get_item_json' %}").then((res) => res.json())
+    }
+
+    async function refreshItems() {
+        const cardContainer = document.getElementById("item-container");
+        cardContainer.innerHTML = "";
+
+        const items = await getItems();
+
+        items.forEach((item) => {
+            cardContainer.innerHTML += `
+            <div class="card-item">
+                <div class="card mx-auto p-3" style="width: 18rem;">
+                    <div class="card-body">s
+                        <h4 class="card-title">${item.fields.name}</h4>
+                        <p class="card-text">Amount: ${item.fields.amount} </p>
+                        <p class="card-text">${item.fields.description}</p>
+                        <button style="justify-content: baseline;" class="btn delete_item" onclick="deleteItem(${item.pk})">Delete</button>
+                        <button class="btn increment btn-sm rounded-full" onclick="incrementAmount({{ item.pk }})">Add</button>
+                        <button class="btn decrement btn-sm rounded-full" onclick="decrementAmount({{ item.pk }})">Substract</button>
+                    </div>
+                </div>
+            </div>`; 
+        });
+        document.getElementById("item-container").innerHTML = cardContainer.innerHTML;
+    }
+
+    refreshItems()
+
+    function addItem() {
+        fetch("{% url 'main:add_item_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshItems)
+
+        document.getElementById("form").reset()
+        return false
+    }
+    document.getElementById("button_add").onclick = addItem
+
+    function deleteItem(itemId) {
+        fetch(`{% url 'main:delete_item' 0 %}`.replace("0", itemId), {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshItems)
+
+        document.getElementById("form").reset()
+        return false
+    }
+
+    // function incrementAJAX(pk) {
+    //     fetch(`increment-ajax/${pk}/`, {
+    //         method: "POST",
+    //     }).then(refreshItems)
+
+    //     return false
+    // }
+
+    function incrementAmount(id) {
+        fetch("/increment-item-ajax/" + id + "/", {
+            method: "POST"
+        }).then(refreshItems)
+
+        document.getElementById("form").reset()
+        return false
+    }
+
+    function decrementAmount(id) {
+        fetch("/decrement-item-ajax/" + id + "/", {
+            method: "POST"
+        }).then(refreshItems)
+
+        document.getElementById("form").reset()
+        return false
+    }
+    
+</script>
+```
+
+7. Saya mengubah `base.html` menjadi seperti berikut:
+```html
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        {% block meta %}
+        <title>Yosheluxe</title>
+        <link rel="stylesheet" href="{% static 'css/output.css' %}">
+        {% endblock meta %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Yosheluxe</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="{% url 'main:logout' %}">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            {% block content %}
+            {% endblock content %}
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </body>
+</html>
+```
+
+8. Melakukan perintah collectstatis:
+`python manage.py collectstatic`
